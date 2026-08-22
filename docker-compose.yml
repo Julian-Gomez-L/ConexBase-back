@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: c_laravel
+    container_name: container_laravel
     ports:
       - "8000:8000"
     volumes:
@@ -18,7 +18,7 @@ services:
 
   db:
     image: mysql:latest
-    container_name: c_mysql
+    container_name: container_mysql
     ports:
       - "3308:3306"
     environment:
@@ -31,7 +31,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin:latest
-    container_name: c_phpmyadmin
+    container_name: container_phpmyadmin
     ports:
       - "8881:80"
     environment:
