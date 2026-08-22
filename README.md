@@ -1,59 +1,290 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Diccionario de Datos — Sistema de Pedidos y Producción (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Proyecto:** ConexBase
+**Framework:** Laravel (migraciones Eloquent)
+**Cantidad de entidades:** 11 version 1
+**Fecha:** 22 de Agosto de 2026
 
-## About Laravel
+> Las entidades están numeradas en el **orden de creación de migraciones** (padre → hija) para evitar errores de foreign key.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Resumen (orden de creación)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| # | Entidad | Tabla | Depende de | Encargado |
+|---|---------|-------|------------|-----------|
+| 1 | Rol | `roles` | — | Dev 1 |
+| 2 | Usuario | `usuarios` | `roles` | Dev 1 |
+| 3 | Cliente | `clientes` | — | Dev 2 |
+| 4 | Categoría | `categorias` | — | Dev 2 |
+| 5 | Producto | `productos` | `categorias` | Dev 2 |
+| 6 | Pedido | `pedidos` | `clientes`, `usuarios` | Dev 3 |
+| 7 | Detalle de pedido | `detalle_pedido` | `pedidos`, `productos` | Dev 3 |
+| 8 | Pago | `pagos` | `pedidos`, `usuarios` | Dev 3 |
+| 9 | Producción | `producciones` | `pedidos`, `productos`, `usuarios` | Dev 4 |
+| 10 | Trabajo de tapicero | `trabajos_tapicero` | `producciones`, `usuarios` | Dev 4 |
+| 11 | Historial de pedido | `historial_pedidos` | `pedidos`, `usuarios` | Dev 4 |
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## 1. Rol — `roles`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Encargado:** Dev 1
+**Descripción:** Define los roles que determinan las funciones y permisos que puede realizar un usuario dentro del sistema.
+**Depende de:** ninguna
 
-## Laravel Sponsors
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del rol |
+| nombre | string | VARCHAR | 50 | No | No | Sí | No | Nombre del rol |
+| descripcion | text | TEXT | — | No | No | No | Sí | Descripción del rol |
+| estado | boolean | TINYINT | 1 | No | No | No | No | Indica si el rol está activo |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Relaciones:** Un rol tiene muchos usuarios (`hasMany`).
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 2. Usuario — `usuarios`
 
-## Contributing
+**Encargado:** Dev 1
+**Descripción:** Almacena los usuarios que pueden ingresar y operar en el sistema, asociados a un rol.
+**Depende de:** `roles`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del usuario |
+| documento | string | VARCHAR | 20 | No | No | Sí | No | Documento de identidad |
+| nombre | string | VARCHAR | 100 | No | No | No | No | Nombre del usuario |
+| apellido | string | VARCHAR | 100 | No | No | No | No | Apellido del usuario |
+| correo | string | VARCHAR | 150 | No | No | Sí | No | Correo electrónico |
+| password | string | VARCHAR | 255 | No | No | No | No | Contraseña cifrada |
+| rol_id | foreignId | BIGINT | — | No | Sí | No | No | Rol asignado al usuario |
+| estado | boolean | TINYINT | 1 | No | No | No | No | Indica si el usuario está activo |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
 
-## Code of Conduct
+**Relaciones:**
+- Un usuario pertenece a un rol (`belongsTo`).
+- Un usuario puede registrar muchos pedidos (`hasMany`).
+- Un usuario puede registrar muchos pagos (`hasMany`).
+- Un usuario puede estar encargado de muchas producciones (`hasMany`).
+- Un usuario puede realizar muchos trabajos de tapicería (`hasMany`).
+- Un usuario puede registrar muchos historiales de pedidos (`hasMany`).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 3. Cliente — `clientes`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Encargado:** Dev 2
+**Descripción:** Almacena la información de los clientes que realizan pedidos a la empresa.
+**Depende de:** ninguna
 
-## License
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del cliente |
+| documento | string | VARCHAR | 20 | No | No | Sí | No | Documento de identidad del cliente |
+| nombre | string | VARCHAR | 150 | No | No | No | No | Nombre completo del cliente |
+| telefono | string | VARCHAR | 20 | No | No | No | No | Número telefónico |
+| correo | string | VARCHAR | 150 | No | No | Sí | No | Correo electrónico |
+| direccion | string | VARCHAR | 255 | No | No | No | Sí | Dirección del cliente |
+| estado | boolean | TINYINT | 1 | No | No | No | No | Indica si el cliente está activo |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Relaciones:** Un cliente tiene muchos pedidos (`hasMany`).
+
+---
+
+## 4. Categoría — `categorias`
+
+**Encargado:** Dev 2
+**Descripción:** Clasifica los productos disponibles en diferentes categorías para facilitar su organización y consulta.
+**Depende de:** ninguna
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único de la categoría |
+| nombre | string | VARCHAR | 100 | No | No | Sí | No | Nombre de la categoría |
+| descripcion | text | TEXT | — | No | No | No | Sí | Descripción de la categoría |
+| estado | boolean | TINYINT | 1 | No | No | No | No | Indica si la categoría está activa |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:** Una categoría tiene muchos productos (`hasMany`).
+
+---
+
+## 5. Producto — `productos`
+
+**Encargado:** Dev 2
+**Descripción:** Contiene los productos que pueden ser incluidos en los pedidos de los clientes.
+**Depende de:** `categorias`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del producto |
+| nombre | string | VARCHAR | 150 | No | No | No | No | Nombre del producto |
+| descripcion | text | TEXT | — | No | No | No | Sí | Descripción del producto |
+| precio | decimal | DECIMAL | 12,2 | No | No | No | No | Precio del producto |
+| categoria_id | foreignId | BIGINT | — | No | Sí | No | No | Categoría a la que pertenece |
+| estado | boolean | TINYINT | 1 | No | No | No | No | Indica si el producto está activo/disponible |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Un producto pertenece a una categoría (`belongsTo`).
+- Un producto tiene muchos detalles de pedido (`hasMany`).
+- Un producto tiene muchas producciones (`hasMany`).
+
+---
+
+## 6. Pedido — `pedidos`
+
+**Encargado:** Dev 3
+**Descripción:** Representa la solicitud de compra realizada por un cliente y gestionada por un usuario, desde su creación hasta su entrega.
+**Depende de:** `clientes`, `usuarios`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del pedido |
+| cliente_id | foreignId | BIGINT | — | No | Sí | No | No | Cliente que realiza el pedido |
+| usuario_id | foreignId | BIGINT | — | No | Sí | No | No | Usuario que registra el pedido |
+| fecha | date | DATE | — | No | No | No | No | Fecha de creación del pedido |
+| metodo_pago | string | VARCHAR | 50 | No | No | No | No | Método de pago seleccionado |
+| estado | string | VARCHAR | 50 | No | No | No | No | Estado actual del pedido |
+| total | decimal | DECIMAL | 12,2 | No | No | No | No | Valor total del pedido |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación del registro |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Un pedido pertenece a un cliente (`belongsTo`).
+- Un pedido pertenece al usuario que lo registró (`belongsTo`).
+- Un pedido tiene muchos detalles de pedido (`hasMany`).
+- Un pedido tiene muchos pagos (`hasMany`).
+- Un pedido tiene muchas producciones (`hasMany`).
+- Un pedido tiene muchos registros de historial (`hasMany`).
+
+---
+
+## 7. Detalle de pedido — `detalle_pedido`
+
+**Encargado:** Dev 3
+**Descripción:** Almacena los productos incluidos dentro de cada pedido, junto con sus cantidades y valores.
+**Depende de:** `pedidos`, `productos`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del detalle |
+| pedido_id | foreignId | BIGINT | — | No | Sí | No | No | Pedido al que pertenece |
+| producto_id | foreignId | BIGINT | — | No | Sí | No | No | Producto incluido |
+| cantidad | unsignedInteger | INT UNSIGNED | — | No | No | No | No | Cantidad de unidades |
+| precio_unitario | decimal | DECIMAL | 12,2 | No | No | No | No | Precio del producto al momento de la venta |
+| subtotal | decimal | DECIMAL | 12,2 | No | No | No | No | Cantidad multiplicada por precio unitario |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Un detalle de pedido pertenece a un pedido (`belongsTo`).
+- Un detalle de pedido pertenece a un producto (`belongsTo`).
+
+---
+
+## 8. Pago — `pagos`
+
+**Encargado:** Dev 3
+**Descripción:** Registra los pagos realizados por los clientes asociados a un pedido.
+**Depende de:** `pedidos`, `usuarios`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del pago |
+| pedido_id | foreignId | BIGINT | — | No | Sí | No | No | Pedido asociado al pago |
+| usuario_id | foreignId | BIGINT | — | No | Sí | No | No | Usuario que registra el pago |
+| monto | decimal | DECIMAL | 12,2 | No | No | No | No | Valor del pago |
+| metodo | string | VARCHAR | 50 | No | No | No | No | Método utilizado para realizar el pago |
+| fecha_pago | date | DATE | — | No | No | No | No | Fecha en que se realizó el pago |
+| comprobante | string | VARCHAR | 255 | No | No | No | Sí | Referencia o ruta del comprobante |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Un pago pertenece a un pedido (`belongsTo`).
+- Un pago pertenece al usuario que registró el pago (`belongsTo`).
+
+---
+
+## 9. Producción — `producciones`
+
+**Encargado:** Dev 4
+**Descripción:** Representa el proceso de fabricación de los productos asociados a un pedido y permite asignar un usuario encargado de la producción.
+**Depende de:** `pedidos`, `productos`, `usuarios`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único de la producción |
+| pedido_id | foreignId | BIGINT | — | No | Sí | No | No | Pedido al que pertenece |
+| producto_id | foreignId | BIGINT | — | No | Sí | No | No | Producto que se fabricará |
+| usuario_id | foreignId | BIGINT | — | No | Sí | No | No | Usuario encargado de la producción |
+| fecha_inicio | date | DATE | — | No | No | No | No | Fecha de inicio de producción |
+| fecha_fin | date | DATE | — | No | No | No | Sí | Fecha de finalización |
+| estado | string | VARCHAR | 50 | No | No | No | No | Estado actual de la producción |
+| observaciones | text | TEXT | — | No | No | No | Sí | Observaciones del proceso |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Una producción pertenece a un pedido (`belongsTo`).
+- Una producción pertenece a un producto (`belongsTo`).
+- Una producción pertenece al usuario encargado (`belongsTo`).
+- Una producción tiene muchos trabajos de tapicería (`hasMany`).
+
+---
+
+## 10. Trabajo de tapicero — `trabajos_tapicero`
+
+**Encargado:** Dev 4
+**Descripción:** Registra las actividades de tapicería realizadas sobre una producción y el usuario encargado de ejecutarlas.
+**Depende de:** `producciones`, `usuarios`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del trabajo |
+| produccion_id | foreignId | BIGINT | — | No | Sí | No | No | Producción a la que pertenece |
+| usuario_id | foreignId | BIGINT | — | No | Sí | No | No | Usuario/tapicero asignado |
+| descripcion | text | TEXT | — | No | No | No | No | Descripción del trabajo |
+| fecha_inicio | date | DATE | — | No | No | No | No | Fecha de inicio |
+| fecha_fin | date | DATE | — | No | No | No | Sí | Fecha de finalización |
+| estado | string | VARCHAR | 50 | No | No | No | No | Estado del trabajo |
+| observaciones | text | TEXT | — | No | No | No | Sí | Observaciones del trabajo |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Un trabajo de tapicería pertenece a una producción (`belongsTo`).
+- Un trabajo de tapicería pertenece al usuario/tapicero (`belongsTo`).
+
+---
+
+## 11. Historial de pedido — `historial_pedidos`
+
+**Encargado:** Dev 4
+**Descripción:** Registra los cambios de estado realizados sobre un pedido, indicando qué usuario realizó el cambio y cuándo ocurrió.
+**Depende de:** `pedidos`, `usuarios`
+
+| Campo | Tipo Laravel | Tipo BD | Longitud | PK | FK | Único | Nulo | Descripción |
+|-------|--------------|---------|----------|----|----|-------|------|-------------|
+| id | bigIncrements | BIGINT | — | Sí | No | Sí | No | Identificador único del historial |
+| pedido_id | foreignId | BIGINT | — | No | Sí | No | No | Pedido cuyo estado cambió |
+| usuario_id | foreignId | BIGINT | — | No | Sí | No | No | Usuario que realizó el cambio |
+| estado_anterior | string | VARCHAR | 50 | No | No | No | Sí | Estado que tenía el pedido anteriormente |
+| estado_nuevo | string | VARCHAR | 50 | No | No | No | No | Nuevo estado del pedido |
+| observacion | text | TEXT | — | No | No | No | Sí | Motivo u observación del cambio |
+| fecha | dateTime | DATETIME | — | No | No | No | No | Fecha y hora del cambio |
+| created_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de creación |
+| updated_at | timestamp | TIMESTAMP | — | No | No | No | Sí | Fecha de actualización |
+
+**Relaciones:**
+- Un registro del historial pertenece a un pedido (`belongsTo`).
+- Un registro del historial pertenece al usuario que realizó el cambio (`belongsTo`).
