@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::table('categorias', function (Blueprint $table) {
 
-        $table->
-            //
-        });
+        $table->id();
+        $table->string("nombre",100)->unique();
+        $table->text("descripcion")->nullable();
+        $table->boolean("estado",1);
+        $table->timestamp();
+
+
+         });
     }
 
     /**
