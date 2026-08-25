@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger("producto_id");
             $table->unsignedBigInteger("usuario_id");
 
+            
             $table->foreign("pedido_id")->references("id")->on("pedido")->onDelete("cascade");
             $table->foreign("producto_id")->references("id")->on("producto")->onDelete("cascade");
             $table->foreign("usuario_id")->references("id")->on("usuario")->onDelete("cascade");
