@@ -25,6 +25,7 @@ return new class extends Migration
                   ->constrained('pusuarios')
                   ->onDelete('cascade');
 
+            
             $table->id()->unique();
             $table->date("fecha_inicio");
             $table->date("fecha_fin")->nullable();
