@@ -11,9 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('Produccion', function (Blueprint $table) {
-            //
-        });
+        Schema::create('categorias', function (Blueprint $table) {
+
+        $table->id();
+        $table->string("nombre",100)->unique();
+        $table->text("descripcion")->nullable();
+        $table->boolean("estado",1);
+        $table->timestamp();
+
+         });
     }
 
     /**
@@ -21,8 +27,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('Produccion', function (Blueprint $table) {
+        Schema::dropIfExists("categorias");
+
             //
-        });
     }
 };

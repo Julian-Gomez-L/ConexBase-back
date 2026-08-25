@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('producciones', function (Blueprint $table) {
 
             $table->foreignId('pedido_id')
@@ -26,12 +25,13 @@ return new class extends Migration
                   ->constrained('pusuarios')
                   ->onDelete('cascade');
 
-            $table->id();
+            $table->id()->unique();
             $table->date("fecha_inicio");
             $table->date("fecha_fin")->nullable();
             $table->string("estado", 50);
             $table->string("observaciones")->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produccion');
+        Schema::dropIfExists('producciones');
     }
 };
