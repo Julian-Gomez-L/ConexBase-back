@@ -23,7 +23,7 @@ return new class extends Migration
                   ->constrained('categorias')
                   ->onDelete('cascade');
       $table->boolean("estado",1);
-      $table->timestamp();
+      $table->timestamps();
 
 
       });

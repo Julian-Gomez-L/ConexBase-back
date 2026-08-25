@@ -17,11 +17,10 @@ return new class extends Migration
          $table->string("documento",20)->unique();
          $table->string("nombre",150);
          $table->string("telefono",20);
-         $table->string("correo",20);
          $table->string("correo",150)->unique();
          $table->string("direccion",255)->nullable();
          $table->boolean("estado",1);
-         $table->timestamp();
+         $table->timestamps();
             //
         });
     }
