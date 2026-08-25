@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre')->unique(); // Columna para el nombre del rol
             $table->string('descripcion')->nullable(); // Columna opcional para la descripción
+            $table->boolean('estado')->default(true);
             $table->timestamps();
         });
     }
