@@ -11,7 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produccion', function (Blueprint $table) {
+        Schema::create('producciones', function (Blueprint $table) {
+
+            $table->foreignId('pedido_id')
+                  ->constrained('pedidos')
+                  ->onDelete('cascade');
+
+            $table->foreignId('producto_id')
+                  ->constrained('productos')
+                  ->onDelete('cascade');
+
+            $table->foreignId('usuario_id')
+                  ->constrained('pusuarios')
+                  ->onDelete('cascade');
+
             $table->id()->unique();
             $table->date("fecha_inicio");
             $table->date("fecha_fin")->nullable();
@@ -19,14 +32,6 @@ return new class extends Migration
             $table->string("observaciones")->nullable();
             $table->timestamps();
 
-            $table->unsignedBigInteger("pedido_id");
-            $table->unsignedBigInteger("producto_id");
-            $table->unsignedBigInteger("usuario_id");
-
-            
-            $table->foreign("pedido_id")->references("id")->on("pedido")->onDelete("cascade");
-            $table->foreign("producto_id")->references("id")->on("producto")->onDelete("cascade");
-            $table->foreign("usuario_id")->references("id")->on("usuario")->onDelete("cascade");
         });
     }
 
@@ -35,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('produccion');
+        Schema::dropIfExists('producciones');
     }
 };
