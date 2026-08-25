@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('documento', 20)->unique(); // Documento de identidad
+            $table->string('nombre', 100);
+            $table->string('apellido', 100);
+            $table->string('correo', 150)->unique(); // Correo electrónico
+            $table->string('password', 255); // Usamos password para evitar la 'ñ'
             
-            $table->foreignId('rol_id')->constrained('roles')->onDelete('cascade');
+            // Llave foránea conectada a la tabla roles
+            $table->foreignId('rol_id')->constrained('roles');
             
+            $table->boolean('estado')->default(true); // Estado activo/inactivo
             $table->timestamps();
         });
     }
