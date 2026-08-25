@@ -19,7 +19,6 @@ return new class extends Migration
         $table->boolean("estado",1);
         $table->timestamp();
 
-
          });
     }
 
