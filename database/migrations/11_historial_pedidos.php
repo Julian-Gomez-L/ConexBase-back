@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trabajos_tapiceros', function (Blueprint $table) {
+        Schema::create('historial_pedidos', function (Blueprint $table) {
 
-            $table->foreignId('produccion_id')
-                  ->constrained('producciones')
+            $table->foreignId('pedido_id')
+                  ->constrained('pedidos')
                   ->onDelete('cascade');
 
             $table->foreignId('usuario_id')
@@ -22,12 +22,11 @@ return new class extends Migration
                   ->onDelete('cascade');
 
             $table->id()->unique();
-            $table->text("descripcion");
-            $table->date("fecha_inicio");
-            $table->date("fecha_fin")->nullable();
-            $table->string("estado", 50);
-            $table->string("observaciones")->nullable();
-            $table->timestamps();   
+            $table->text("estado_anterior", 50)->nullable();
+            $table->date("estado_nuevo", 50) ;
+            $table->string("observacion")->nullable();
+            $table->dateTime("fecha");
+            $table->timestamps();
         });
     }
 
@@ -36,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trabajos_tapiceros');
+        Schema::dropIfExists('historial_pedidos');
     }
 };

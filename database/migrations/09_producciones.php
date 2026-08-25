@@ -22,7 +22,7 @@ return new class extends Migration
                   ->onDelete('cascade');
 
             $table->foreignId('usuario_id')
-                  ->constrained('pusuarios')
+                  ->constrained('usuarios')
                   ->onDelete('cascade');
 
             $table->id()->unique();
