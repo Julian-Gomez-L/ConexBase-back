@@ -2,29 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Rol extends Model
 {
-    use HasFactory;
+    use HasFactory; // se encarga de crear datos de prueba
 
-    protected $table = 'roles';
+    protected $table="roles"; // escribimos como se llama la tabla en la DB
 
-    // Campos que se pueden llenar masivamente
-    protected $fillable = [
+    protected $fillable =[ // definimos los campos
         'nombre',
         'descripcion',
-        'estado'
+        'estado', //1, 0
     ];
 
-    /**
-     * Relaciones
-     */
-    
-    // Un rol tiene muchos usuarios (hasMany)
-    public function usuarios()
+    protected $casts =[
+        'estado' => 'boolean' 
+    ];
+
+    public function usuario()
     {
-        return $this->hasMany(Usuario::class, 'rol_id');
+        return $this->hasMany(Usuario::class);
     }
+
 }
