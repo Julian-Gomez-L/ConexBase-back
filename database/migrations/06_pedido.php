@@ -18,7 +18,6 @@ return new class extends Migration {
                 ->constrained('usuarios')
                 ->onDelete('cascade');
 
-            $table->string('metodo_pago', 50);
             $table->string('estado', 50);
             $table->decimal('total', 12, 2);
             $table->timestamps();

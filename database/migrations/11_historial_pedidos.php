@@ -21,6 +21,10 @@ return new class extends Migration
                   ->constrained('usuarios')
                   ->onDelete('cascade');
 
+            $table->foreignId('cliente_id')
+                  ->constrained('clientes')
+                  ->onDelete('cascade');
+
             $table->id()->unique();
             $table->text("estado_anterior", 50)->nullable();
             $table->date("estado_nuevo", 50) ;

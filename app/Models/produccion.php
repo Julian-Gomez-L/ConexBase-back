@@ -20,7 +20,7 @@ class produccion extends Model
         'id_pedido',
         'id_producto',
         'id_usuario',
-        'id_trabajos_tapiceria',
+        'id_trabajos_tapiceros',
     ];
 
         public function pedido()
@@ -35,11 +35,11 @@ class produccion extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'id_usuario');
+        return $this->belongsTo(Usuario::class, 'id_usuario');
     }
 
-        public function trabajos_tapiceria()
+        public function trabajos_tapicerios()
     {
-        return $this->hasMany(Trabajos_tapiceria::class, 'id_trabajos_tapiceria');
+        return $this->hasMany(Trabajos_tapiceros::class, 'id_trabajos_tapiceros');
     }
 }
