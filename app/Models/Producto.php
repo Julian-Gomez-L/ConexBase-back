@@ -25,7 +25,20 @@ class Producto extends Model
     ];
 
     public function categoria()
+
     {
-        return $this->belongsTo(Categoria::class, 'categoria_id');
+        return $this->belongsTo(Categoria::class);
+    }
+
+    public function pedido()
+
+    {
+        return $this->hasMany(pedido::class);
+    }
+
+    public function producciones()
+
+    {
+        return $this->hasMany(producciones::class);
     }
 }

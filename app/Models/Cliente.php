@@ -23,4 +23,13 @@ class Cliente extends Model
     protected $casts = [
         'estado' => 'boolean',
     ];
-}    
+
+    public function pedido()
+
+    {
+        return $this->hasMany(pedido::class);
+    }    
+
+
+
+}
