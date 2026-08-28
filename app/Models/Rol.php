@@ -9,10 +9,20 @@ class Rol extends Model
 {
     use HasFactory;
 
-    // Le indicamos el nombre exacto de la tabla
     protected $table = 'roles';
 
-    // Relación: Un rol tiene muchos usuarios
+    // Campos que se pueden llenar masivamente
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'estado'
+    ];
+
+    /**
+     * Relaciones
+     */
+    
+    // Un rol tiene muchos usuarios (hasMany)
     public function usuarios()
     {
         return $this->hasMany(Usuario::class, 'rol_id');
