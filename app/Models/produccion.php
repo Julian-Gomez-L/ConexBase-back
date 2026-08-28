@@ -38,8 +38,8 @@ class produccion extends Model
         return $this->belongsTo(Usuario::class, 'id_usuario');
     }
 
-        public function trabajos_tapicerios()
+        public function trabajos_Tapicerio()
     {
-        return $this->hasMany(Trabajos_tapiceros::class, 'id_trabajos_tapiceros');
+        return $this->hasMany(trabajos_Tapiceros::class, 'id_trabajos_tapiceros');
     }
 }
