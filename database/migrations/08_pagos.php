@@ -20,7 +20,7 @@ return new class extends Migration {
 
             $table->decimal('monto', 12, 2);
             $table->string('metodo', 50);
-            $table->date('fecha_pago');
+            $table->dateTime('fecha_pago');
             $table->string('comprobante', 255)->nullable();
             $table->timestamps();
         });
