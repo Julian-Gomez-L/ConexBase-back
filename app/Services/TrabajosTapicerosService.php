@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\Interfaces\Trabajos_TapicerosInterface;
+use App\Interfaces\TrabajosTapicerosInterface;
 
 class Trabajos_TapicerosService
 {
     protected $trabajosTapicerosRepository;
 
-    public function __construct(Trabajos_TapicerosInterface $trabajosTapicerosRepository)
+    public function __construct(TrabajosTapicerosInterface $trabajosTapicerosRepository)
     {
         $this->trabajosTapicerosRepository = $trabajosTapicerosRepository;
     }

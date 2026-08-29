@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Interfaces\Historial_PedidosInterface;
+use App\Interfaces\HistorialPedidosInterface;
 
-class Historial_PedidosService
+class HistorialPedidosService
 {
-    public function __construct(Historial_PedidosInterface $historialPedidosRepository)
+    public function __construct(HistorialPedidosInterface $historialPedidosRepository)
     {
         $this->historialPedidosRepository = $historialPedidosRepository;
     }
