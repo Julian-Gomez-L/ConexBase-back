@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Services;
 
 use App\Interfaces\Historial_PedidosInterface;
-use App\Models\Historial_Pedidos;
 
-class Historial_PedidosRepository extends BaseRepository implements Historial_PedidosInterface
+class Historial_PedidosService
 {
-    public function __construct(Historial_Pedidos $historialPedidosModel)
+    public function __construct(Historial_PedidosInterface $historialPedidosRepository)
     {
-        parent::__construct($historialPedidosModel);
+        $this->historialPedidosRepository = $historialPedidosRepository;
     }
 
     public function getByPedidoId(int $id_pedido)

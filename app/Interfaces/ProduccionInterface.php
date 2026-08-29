@@ -8,6 +8,4 @@ interface ProduccionInterface extends BaseInterface
     public function getByPedidoId(int $id_pedido);
     public function getByProductoId(int $id_producto);
     public function getByUsuarioId(int $id_usuario);
-    public function getByTrabajosTapicerosId(int $id_trabajos_tapiceros);
-    
 }

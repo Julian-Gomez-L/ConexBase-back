@@ -14,22 +14,41 @@ class ProduccionRepository extends BaseRepository implements ProduccionInterface
 
     public function getByPedidoId(int $id_pedido)
     {
-        return $this->model->where("id_pedido", $id_pedido)->get();
+        $estado = $this->model->where("pedido", $id_pedido)
+                             ->get();
+        if ($estado->empty()) 
+        {
+            return null;
+        }
     }
 
     public function getByProductoId(int $id_producto)
-    {
-        return $this->model->where("id_producto", $id_producto)->get();
+     {
+        $estado = $this->model->where("producto", $id_producto)
+                             ->get();
+        if ($estado->empty()) 
+        {
+            return null;
+        }
     }
 
     public function getByUsuarioId(int $id_usuario)
-    {
-        return $this->model->where("id_usuario", $id_usuario)->get();
+     {
+        $estado = $this->model->where("usuario", $id_usuario)
+                             ->get();
+        if ($estado->empty()) 
+        {
+            return null;
+        }
     }
 
-    public function getByTrabajosTapicerosId(int $id_trabajos_tapiceros)
+    public function getByEstado(string $estado)
     {
-        return $this->model->where("id_trabajos_tapiceros", $id_trabajos_tapiceros)->get();
+        $estado = $this->model->where("estado", $estado)
+                             ->get();
+        if ($estado->empty()) 
+        {
+            return null;
+        }
     }
-    
 }

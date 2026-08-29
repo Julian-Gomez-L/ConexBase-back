@@ -1,27 +1,28 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Services;
 
 use App\Interfaces\Trabajos_TapicerosInterface;
-use App\Models\Trtabajos_Tapiceros;
 
-class Trabajos_TapicerosRepository extends BaseRepository implements Trabajos_TapicerosInterface
+class Trabajos_TapicerosService
 {
-    public function __construct(Trabajos_Tapiceros $trabajosTapicerosModel)
+    protected $trabajosTapicerosRepository;
+
+    public function __construct(Trabajos_TapicerosInterface $trabajosTapicerosRepository)
     {
-        parent::__construct($trabajosTapicerosModel);
+        $this->trabajosTapicerosRepository = $trabajosTapicerosRepository;
     }
 
     public function getByProduccionId(int $id_produccion)
      {
-        $estado = $this->model->where("produccion", $id_produccion)
+        $estado = $this->model->where("estado", $estado)
                              ->get();
         if ($estado->empty()) 
         {
             return null;
         }
     }
-
+    
     public function getByUsuarioId(int $id_usuario)
     {
         $estado = $this->model->where("usuario", $id_usuario)
