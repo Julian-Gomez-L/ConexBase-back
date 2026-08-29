@@ -14,8 +14,8 @@ return new class extends Migration {
                 ->constrained('pedidos')
                 ->onDelete('cascade');
 
-            $table->foreignId('usuario_id')
-                ->constrained('usuarios')
+            $table->foreignId('producto_id')
+                ->constrained('producto')
                 ->onDelete('cascade');
 
             $table->unsignedInteger('cantidad');
