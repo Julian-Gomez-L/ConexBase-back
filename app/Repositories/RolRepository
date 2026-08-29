@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Rol;
+
+class RolRepository
+{
+    // Obtener todos los roles
+    public function getAll()
+    {
+        return Rol::all();
+    }
+
+    // Buscar un rol por su ID
+    public function findById($id)
+    {
+        return Rol::find($id);
+    }
+
+    // Crear un nuevo rol
+    public function create(array $data)
+    {
+        return Rol::create($data);
+    }
+
+    // Actualizar un rol
+    public function update($id, array $data)
+    {
+        $rol = Rol::find($id);
+        if ($rol) {
+            $rol->update($data);
+            return $rol;
+        }
+        return null;
+    }
+
+    // Eliminar un rol
+    public function delete($id)
+    {
+        $rol = Rol::find($id);
+        if ($rol) {
+            return $rol->delete();
+        }
+        return false;
+    }
+}

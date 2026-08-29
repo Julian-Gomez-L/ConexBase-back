@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Usuario;
+
+class UsuarioRepository
+{
+    // Obtener todos los usuarios, incluyendo su rol
+    public function getAll()
+    {
+        // Usamos 'with' para traer el rol asociado de una vez y optimizar la consulta
+        return Usuario::with('rol')->get();
+    }
+
+    // Buscar un usuario por ID
+    public function findById($id)
+    {
+        return Usuario::with('rol')->find($id);
+    }
+
+    // Crear un nuevo usuario
+    public function create(array $data)
+    {
+        return Usuario::create($data);
+    }
+
+    // Actualizar un usuario
+    public function update($id, array $data)
+    {
+        $usuario = Usuario::find($id);
+        if ($usuario) {
+            $usuario->update($data);
+            return $usuario;
+        }
+        return null;
+    }
+
+    // Eliminar un usuario
+    public function delete($id)
+    {
+        $usuario = Usuario::find($id);
+        if ($usuario) {
+            return $usuario->delete();
+        }
+        return false;
+    }
+}
