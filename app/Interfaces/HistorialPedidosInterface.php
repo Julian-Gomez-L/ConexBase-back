@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 
 
-interface Historial_PedidosInterface extends BaseInterface
+interface HistorialPedidosInterface extends BaseInterface
 
 {
     public function getByPedidoId(int $id_pedido);

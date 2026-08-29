@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\Trabajos_TapicerosInterface;
-use App\Models\Trtabajos_Tapiceros;
+use App\Interfaces\TrabajosTapicerosInterface;
+use App\Models\TrtabajosTapiceros;
 
-class Trabajos_TapicerosRepository extends BaseRepository implements Trabajos_TapicerosInterface
+class TrabajosTapicerosRepository extends BaseRepository implements TrabajosTapicerosInterface
 {
-    public function __construct(Trabajos_Tapiceros $trabajosTapicerosModel)
+    public function __construct(TrabajosTapiceros $trabajosTapicerosModel)
     {
         parent::__construct($trabajosTapicerosModel);
     }

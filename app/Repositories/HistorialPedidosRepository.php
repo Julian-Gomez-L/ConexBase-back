@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\Historial_PedidosInterface;
-use App\Models\Historial_Pedidos;
+use App\Interfaces\HistorialPedidosInterface;
+use App\Models\HistorialPedidos;
 
-class Historial_PedidosRepository extends BaseRepository implements Historial_PedidosInterface
+class HistorialPedidosRepository extends BaseRepository implements HistorialPedidosInterface
 {
-    public function __construct(Historial_Pedidos $historialPedidosModel)
+    public function __construct(HistorialPedidos $historialPedidosModel)
     {
         parent::__construct($historialPedidosModel);
     }
