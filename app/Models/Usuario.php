@@ -31,29 +31,4 @@ class Usuario extends Model
         return $this->belongsTo(Rol::class, 'rol_id');
     }
 
-
-    public function pedidos()
-    {
-        return $this->hasMany(Pedido::class);
-    }
-
-    public function pagos()
-    {
-        return $this->hasMany(Pago::class);
-    }
-
-    public function producciones()
-    {
-        return $this->hasMany(Produccion::class);
-    }
-
-    public function trabajos_Tapicero()
-    {
-        return $this->hasMany(Trabajos_Tapicero::class);
-    }
-
-    public function historial_Pedidos()
-    {
-        return $this->hasMany(Historial_Pedido::class);
-    }
 }
