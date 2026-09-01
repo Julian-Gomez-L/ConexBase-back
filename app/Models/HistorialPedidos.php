@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Historial_pedidos extends Model
+class HistorialPedidos extends Model
 {
     use HasFactory;
 

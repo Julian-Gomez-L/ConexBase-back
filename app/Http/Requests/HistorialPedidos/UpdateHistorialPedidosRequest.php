@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Historial_Pedidos;
+namespace App\Http\Requests\HistorialPedidos;
 
 
 use Illuminate\Foundation\Http\FormRequest;

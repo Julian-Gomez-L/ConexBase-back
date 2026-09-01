@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Services\TrabajosTapicerosService;
-use App\Http\Requests\Trabajos_Tapiceros\StoreTrabajosTapicerosRequest;
-use App\Http\Requests\Trabajos_Tapiceros\UpdateTrabajosTapicerosRequest;
-use App\Models\Trabajos_tapiceros;
+use App\Http\Requests\TrabajosTapiceros\StoreTrabajosTapicerosRequest;
+use App\Http\Requests\TrabajosTapiceros\UpdateTrabajosTapicerosRequest;
+use App\Models\TrabajosTapiceros;
 
 
 class TrabajosTapicerosController extends Controller
@@ -45,7 +45,7 @@ class TrabajosTapicerosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTrabajosTapicerosRequest $request, Trabajos_tapiceros $trabajos_tapiceros)
+    public function update(UpdateTrabajosTapicerosRequest $request, TrabajosTapiceros $trabajos_tapiceros)
 {
     $trabajos_tapiceros->update($request->validated());
 
@@ -59,7 +59,7 @@ class TrabajosTapicerosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Trabajos_tapiceros $trabajos_tapiceros)
+    public function destroy(TrabajosTapiceros $trabajos_tapiceros)
 {
     $trabajos_tapiceros->delete();
 

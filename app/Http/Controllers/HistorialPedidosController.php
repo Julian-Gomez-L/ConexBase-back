@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Services\HistorialPedidosService;
-use App\Http\Requests\Historial_Pedidos\StoreHistorialPedidosRequest;
-use App\Http\Requests\Historial_Pedidos\UpdateHistorialPedidosRequest;
-use App\Models\Historial_Pedidos;
+use App\Http\Requests\HistorialPedidos\StoreHistorialPedidosRequest;
+use App\Http\Requests\HistorialPedidos\UpdateHistorialPedidosRequest;
+use App\Models\HistorialPedidos;
 
 class HistorialPedidosController extends Controller
 {
@@ -44,7 +44,7 @@ class HistorialPedidosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateHistorialPedidosRequest $request, Historial_Pedidos $historialPedidos)
+    public function update(UpdateHistorialPedidosRequest $request, HistorialPedidos $historialPedidos)
 {
     $historialPedidos->update($request->validated());
 
@@ -58,7 +58,7 @@ class HistorialPedidosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Historial_Pedidos $historialPedidos)
+    public function destroy(HistorialPedidos $historialPedidos)
 {
     $historialPedidos->delete();
 

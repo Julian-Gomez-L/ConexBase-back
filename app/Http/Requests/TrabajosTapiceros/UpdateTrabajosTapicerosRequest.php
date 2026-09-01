@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Trabajos_Tapiceros;
+namespace App\Http\Requests\TrabajosTapiceros;
 
 
 use Illuminate\Foundation\Http\FormRequest;

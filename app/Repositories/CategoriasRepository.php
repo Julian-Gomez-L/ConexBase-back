@@ -7,7 +7,7 @@ use App\Models\Categoria;
 
 class CategoriasRepository extends BaseRepository implements CategoriasInterface
 {
-    public function __construct(Categorias $categoriasModel)
+    public function __construct(Categoria $categoriasModel)
     {
         parent::__construct($categoriasModel);
     }
