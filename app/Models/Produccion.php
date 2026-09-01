@@ -40,6 +40,6 @@ class Produccion extends Model
 
         public function trabajos_Tapicerio()
     {
-        return $this->hasMany(trabajos_Tapiceros::class, 'id_trabajos_tapiceros');
+        return $this->hasMany(trabajosTapiceros::class, 'id_trabajos_tapiceros');
     }
 }
