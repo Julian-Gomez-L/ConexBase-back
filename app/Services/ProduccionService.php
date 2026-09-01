@@ -6,11 +6,8 @@ use App\Interfaces\ProduccionInterface;
 
 class ProduccionService
 {
-    protected $produccionRepository; //protected es para que solo se pueda acceder a esta propiedad desde la clase y sus subclases
-
-    public function __construct(ProduccionInterface $produccionRepository)
+    public function __construct(private ProduccionInterface $produccionRepository)
     {
-        $this->produccionRepository = $produccionRepository;
     }
 
     public function list()
@@ -36,36 +33,6 @@ class ProduccionService
     public function destroy(int $id)
     {
         return $this->produccionRepository->delete($id);
-    }
-    
-    public function getByPedidoId(int $id_pedido)
-    {
-        return $this->produccionRepository->getByPedidoId($id_pedido);
-    }
-
-    public function getByProductoId(int $id_producto)
-    {
-        return $this->produccionRepository->getByProductoId($id_producto);
-    }
-
-    public function getByUsuarioId(int $id_usuario)
-    {
-        return $this->produccionRepository->getByUsuarioId($id_usuario);
-    }
-
-    public function getByEstado(string $estado)
-    {
-        return $this->produccionRepository->getByEstado($estado);
-    }
-
-    public function getByFechaInicio(string $fecha_inicio)
-    {
-        return $this->produccionRepository->getByFechaInicio($fecha_inicio);
-    }
-
-    public function getByFechaFin(string $fecha_fin)
-    {
-        return $this->produccionRepository->getByFechaFin($fecha_fin);
     }
 
 }

@@ -6,9 +6,8 @@ use App\Interfaces\HistorialPedidosInterface;
 
 class HistorialPedidosService
 {
-    public function __construct(HistorialPedidosInterface $historialPedidosRepository)
+    public function __construct(private HistorialPedidosInterface $historialPedidosRepository)
     {
-        $this->historialPedidosRepository = $historialPedidosRepository;
     }
 
     public function list()
@@ -34,25 +33,5 @@ class HistorialPedidosService
     public function destroy(int $id)
     {
         return $this->historialPedidosRepository->delete($id);
-    }
-
-    public function getByPedidoId(int $id_pedido)
-     {
-            return $this->historialPedidosRepository->getByPedidoId($id_pedido);
-    }
-
-    public function getByUsuarioId(int $id_usuario)
-    {
-        return $this->historialPedidosRepository->getByUsuarioId($id_usuario);
-    }
-
-    public function getByEstadoAnterior(string $estado_anterior)
-    {
-        return $this->historialPedidosRepository->getByEstadoAnterior($estado_anterior);
-    }
-
-    public function getByEstadoNuevo(string $estado_nuevo)
-    {
-        return $this->historialPedidosRepository->getByEstadoNuevo($estado_nuevo);
     }
 }

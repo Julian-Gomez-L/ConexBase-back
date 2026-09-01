@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface Categoriasnterface extends BaseInterface
+interface CategoriasInterface extends BaseInterface
 
 {
 

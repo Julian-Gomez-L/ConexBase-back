@@ -2,38 +2,38 @@
 
 namespace App\Services;
 
-use App\Interfaces\PrivatePedidosInterface;
+use App\Interfaces\ProductosInterface;
 
-class PrivatePedidosService
+class ProductosService
 {
-    public function __construct(PrivatePedidosInterface $historialPedidosRepository)
-
-        
+    public function __construct(private ProductosInterface $productosRepository)
+    {
     }
 
     public function list()
     {
-        return $this->historialPedidosRepository->getAll();
+        return $this->productosRepository->getAll();
     }
 
     public function store(array $data)
     {
-        return $this->historialPedidosRepository->create($data);
+        return $this->productosRepository->create($data);
     }
 
     public function show(int $id)
     {
-        return $this->historialPedidosRepository->getById($id);
+        return $this->productosRepository->getById($id);
     }
 
     public function update(array $data, int $id)
     {
-        return $this->historialPedidosRepository->update($data, $id);
+        return $this->productosRepository->update($data, $id);
     }
 
     public function destroy(int $id)
     
     {
-    
+        return $this->productosRepository->delete($id);
+    }
        
 }
