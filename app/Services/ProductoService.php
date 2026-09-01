@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\PrivatePedidosInterface;
 
-class HistorialPedidosService
+class PrivatePedidosService
 {
     public function __construct(PrivatePedidosInterface $historialPedidosRepository)
 
