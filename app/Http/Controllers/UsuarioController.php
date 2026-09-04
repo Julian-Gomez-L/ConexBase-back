@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\UsuarioService;
+use App\Http\Requests\Usuario\StoreUsuarioRequest;
+use App\Http\Requests\Usuario\UpdateUsuarioRequest;
 use App\Models\Usuario;
 
 class UsuarioController extends Controller
@@ -22,9 +23,9 @@ class UsuarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUsuarioRequest $datos)
     {
-        $registroInsertado = $this->usuarioService->store($request->all());
+        $registroInsertado = $this->usuarioService->store($datos->validated());
 
         return response()->json([
             'success'         => 'El usuario se creó correctamente',
@@ -46,22 +47,22 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(UpdateUsuarioRequest $request, Usuario $usuario)
     {
-        $usuarioActualizado = $this->usuarioService->update($request->all(), $id);
+        $usuario->update($request->validated());
 
         return response()->json([
             'success' => 'Usuario actualizado correctamente',
-            'data'    => $usuarioActualizado
+            'data'    => $usuario
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id)
+    public function destroy(Usuario $usuario)
     {
-        $this->usuarioService->destroy($id);
+        $usuario->delete();
 
         return response()->json([
             'message' => 'Usuario eliminado correctamente'

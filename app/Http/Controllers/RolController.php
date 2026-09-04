@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\RolService;
+use App\Http\Requests\Rol\StoreRolRequest;
+use App\Http\Requests\Rol\UpdateRolRequest;
 use App\Models\Rol;
 
 class RolController extends Controller
@@ -22,10 +23,9 @@ class RolController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRolRequest $datos)
     {
-        // Si usas un FormRequest, cambia 'Request' por 'StoreRolRequest' y usa $request->validated()
-        $registroInsertado = $this->rolService->store($request->all());
+        $registroInsertado = $this->rolService->store($datos->validated());
 
         return response()->json([
             'success'         => 'El rol se creó correctamente',
@@ -47,22 +47,22 @@ class RolController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(UpdateRolRequest $request, Rol $rol)
     {
-        $rolActualizado = $this->rolService->update($request->all(), $id);
+        $rol->update($request->validated());
 
         return response()->json([
             'success' => 'Rol actualizado correctamente',
-            'data'    => $rolActualizado
+            'data'    => $rol
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(int $id)
+    public function destroy(Rol $rol)
     {
-        $this->rolService->destroy($id);
+        $rol->delete();
 
         return response()->json([
             'message' => 'Rol eliminado correctamente'
