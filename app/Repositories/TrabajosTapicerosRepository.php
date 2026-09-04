@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Interfaces\TrabajosTapicerosInterface;
-use App\Models\TrtabajosTapiceros;
+use App\Models\TrabajosTapiceros;
 
 class TrabajosTapicerosRepository extends BaseRepository implements TrabajosTapicerosInterface
 {

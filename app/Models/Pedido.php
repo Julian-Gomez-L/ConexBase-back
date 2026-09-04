@@ -38,12 +38,12 @@ class Pedido extends Model
 
     public function producciones  ()
     {
-        return $this->hasMany(Producciones ::class);
+        return $this->hasMany(Produccion ::class);
     }
 
     public function historialPedidos ()
     {
-        return $this->hasMany(HistorialPedido::class);
+        return $this->hasMany(HistorialPedidos::class);
     }
 
 }

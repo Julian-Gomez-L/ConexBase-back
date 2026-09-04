@@ -19,7 +19,7 @@ return new class extends Migration
          $table->string("telefono",20);
          $table->string("correo",150)->unique();
          $table->string("direccion",255)->nullable();
-         $table->boolean("estado",1);
+         $table->boolean("estado")->default(1);
          $table->timestamps();
             //
         });

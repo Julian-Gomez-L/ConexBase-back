@@ -2,9 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Interfaces\HistorialPedidosInterface;
+
 use App\Interfaces\PedidosInterface;
-use App\Models\HistorialPedidos;
 use App\Models\Pedido;
 
 class PedidosRepository extends BaseRepository implements PedidosInterface

@@ -22,7 +22,7 @@ return new class extends Migration
       $table->foreignId('categoria_id')
                   ->constrained('categorias')
                   ->onDelete('cascade');
-      $table->boolean("estado",1);
+      $table->boolean("estado")->default(1);
       $table->timestamps();
 
 

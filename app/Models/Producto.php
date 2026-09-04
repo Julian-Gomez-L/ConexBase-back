@@ -39,6 +39,6 @@ class Producto extends Model
     public function producciones()
 
     {
-        return $this->hasMany(producciones::class);
+        return $this->hasMany(Produccion::class);
     }
 }

@@ -26,9 +26,9 @@ return new class extends Migration
                   ->onDelete('cascade');
 
             $table->id()->unique();
-            $table->text("estado_anterior", 50)->nullable();
-            $table->date("estado_nuevo", 50) ;
-            $table->string("observacion")->nullable();
+            $table->string("estado_anterior", 50)->nullable();
+            $table->string("estado_nuevo", 50)->nullable();
+            $table->text("observacion")->nullable();
             $table->dateTime("fecha");
             $table->timestamps();
         });

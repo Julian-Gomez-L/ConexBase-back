@@ -31,9 +31,10 @@ class BaseRepository implements BaseInterface
 
     public function update(array $data, int $id)
     {
-        $registro = $this->model->find($id); 
+        /** @var Model|null $registro */  //se pone comentarios para que no marque error de tipado
+        $registro = $this->model->find($id);
 
-        if (! $registro) {
+        if (!$registro) {
             return null;
         }
 
@@ -44,12 +45,13 @@ class BaseRepository implements BaseInterface
 
     public function delete(int $id)
     {
-        $registro = $this->model->find($id); 
+        /** @var Model|null $registro */
+        $registro = $this->model->find($id);
 
         if (!$registro) {
             return null;
         }
 
-        return $registro->delete($id); 
+        return $registro->delete();
     }
 }

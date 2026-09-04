@@ -16,7 +16,7 @@ return new class extends Migration
         $table->id();
         $table->string("nombre",100)->unique();
         $table->text("descripcion")->nullable();
-        $table->boolean("estado",1);
+        $table->boolean("estado")->default(1);
         $table->timestamps();
 
          });
