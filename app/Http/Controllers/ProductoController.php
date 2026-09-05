@@ -8,7 +8,7 @@ use App\Http\Requests\Producto\StoreProductoRequest;
 use App\Http\Requests\Producto\UpdateProductoRequest;
 use App\Models\Producto;
 
-class ProductosController extends Controller
+class ProductoController extends Controller
 {
     public function __construct(private ProductosService $productosService)
     {}
