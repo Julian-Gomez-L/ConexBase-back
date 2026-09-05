@@ -6,10 +6,11 @@ use App\Interfaces\DetallePedidoInterface;
 
 class DetallePedidoService
 {
-     public function __construct(private DetallePedidoInterface $detallePedidoInterface)
-    {}
+    public function __construct(
+        private DetallePedidoInterface $detallePedidoInterface
+    ) {}
 
-     public function list()
+    public function list()
     {
         return $this->detallePedidoInterface->getAll();
     }

@@ -15,7 +15,7 @@ return new class extends Migration {
                 ->onDelete('cascade');
 
             $table->foreignId('producto_id')
-                ->constrained('producto')
+                ->constrained('productos')
                 ->onDelete('cascade');
 
             $table->unsignedInteger('cantidad');

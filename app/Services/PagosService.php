@@ -6,32 +6,32 @@ use App\Interfaces\PagosInterface;
 
 class PagosService
 {
-     public function __construct(private PagosInterface $pagosInterface)
+     public function __construct(private PagosInterface $pagosRepository)
     {}
 
      public function list()
     {
-        return $this->pagosInterface->getAll();
+        return $this->pagosRepository->getAll();
     }
 
     public function store(array $data)
     {
-        return $this->pagosInterface->create($data);
+        return $this->pagosRepository->create($data);
     }
 
     public function show(int $id)
     {
-        return $this->pagosInterface->getById($id);
+        return $this->pagosRepository->getById($id);
     }
 
     public function update(array $data, int $id)
     {
-        return $this->pagosInterface->update($data, $id);
+        return $this->pagosRepository->update($data, $id);
     }
 
     public function destroy(int $id)
     {
-        return $this->pagosInterface->delete($id);
+        return $this->pagosRepository->delete($id);
     }
 
 }
