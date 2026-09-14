@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Services\TrabajosTapicerosService;
 use App\Http\Requests\TrabajosTapiceros\StoreTrabajosTapicerosRequest;
 use App\Http\Requests\TrabajosTapiceros\UpdateTrabajosTapicerosRequest;
 use App\Models\TrabajosTapiceros;
 
-
+/**
+ * @group Trabajos Tapiceros
+ *
+ * Gestión de los trabajos asignados a los tapiceros.
+ */
 class TrabajosTapicerosController extends Controller
 {
     public function __construct(private TrabajosTapicerosService $trabajos_tapicerosService)
     {}
-     public function index()
-     {
+
+    public function index()
+    {
         return response()->json([
             'success' => 'Se listaron correctamente',
             'data'  => $this->trabajos_tapicerosService->list()
         ]);
-     }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -46,25 +50,24 @@ class TrabajosTapicerosController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateTrabajosTapicerosRequest $request, TrabajosTapiceros $trabajos_tapiceros)
-{
-    $trabajos_tapiceros->update($request->validated());
+    {
+        $trabajos_tapiceros->update($request->validated());
 
-    return response()->json([
-        'success' => 'Trabajos de tapiceros actualizados correctamente',
-        'data' => $trabajos_tapiceros
-    ], 200);
-}
-
+        return response()->json([
+            'success' => 'Trabajos de tapiceros actualizados correctamente',
+            'data' => $trabajos_tapiceros
+        ], 200);
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(TrabajosTapiceros $trabajos_tapiceros)
-{
-    $trabajos_tapiceros->delete();
+    {
+        $trabajos_tapiceros->delete();
 
-    return response()->json([
-        'message' => 'Trabajos de tapiceros eliminados correctamente'
-    ], 200);
-}
+        return response()->json([
+            'message' => 'Trabajos de tapiceros eliminados correctamente'
+        ], 200);
+    }
 }

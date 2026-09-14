@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Services\HistorialPedidosService;
 use App\Http\Requests\HistorialPedidos\StoreHistorialPedidosRequest;
 use App\Http\Requests\HistorialPedidos\UpdateHistorialPedidosRequest;
 use App\Models\HistorialPedidos;
 
+/**
+ * @group Historial de Pedidos
+ *
+ * Gestión del historial de los pedidos.
+ */
 class HistorialPedidosController extends Controller
 {
     public function __construct(private HistorialPedidosService $historialPedidosService)
     {}
-     public function index()
-     {
+
+    public function index()
+    {
         return response()->json([
             'success' => 'Se listaron correctamente',
             'data'  => $this->historialPedidosService->list()
         ]);
-     }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,25 +50,24 @@ class HistorialPedidosController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateHistorialPedidosRequest $request, HistorialPedidos $historialPedidos)
-{
-    $historialPedidos->update($request->validated());
+    {
+        $historialPedidos->update($request->validated());
 
-    return response()->json([
-        'success' => 'Historial de pedidos actualizado correctamente',
-        'data' => $historialPedidos
-    ], 200);
-}
-
+        return response()->json([
+            'success' => 'Historial de pedidos actualizado correctamente',
+            'data' => $historialPedidos
+        ], 200);
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(HistorialPedidos $historialPedidos)
-{
-    $historialPedidos->delete();
+    {
+        $historialPedidos->delete();
 
-    return response()->json([
-        'message' => 'Historial de pedidos eliminado correctamente'
-    ], 200);
-}
+        return response()->json([
+            'message' => 'Historial de pedidos eliminado correctamente'
+        ], 200);
+    }
 }

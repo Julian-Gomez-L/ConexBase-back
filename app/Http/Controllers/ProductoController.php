@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Services\ProductosService;
 use App\Http\Requests\Producto\StoreProductoRequest;
 use App\Http\Requests\Producto\UpdateProductoRequest;
 use App\Models\Producto;
 
+/**
+ * @group Productos
+ *
+ * Gestión de los productos del sistema.
+ */
 class ProductoController extends Controller
 {
     public function __construct(private ProductosService $productosService)
     {}
-     public function index()
-     {
+
+    public function index()
+    {
         return response()->json([
             'success' => 'Se listaron correctamente',
             'data'  => $this->productosService->list()
         ]);
-     }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -45,25 +50,24 @@ class ProductoController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateProductoRequest $request, Producto $producto)
-{
-    $producto->update($request->validated());
+    {
+        $producto->update($request->validated());
 
-    return response()->json([
-        'success' => 'Producto actualizado correctamente',
-        'data' => $producto
-    ], 200);
-}
-
+        return response()->json([
+            'success' => 'Producto actualizado correctamente',
+            'data' => $producto
+        ], 200);
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Producto $producto)
-{
-    $producto->delete();
+    {
+        $producto->delete();
 
-    return response()->json([
-        'message' => 'Producto eliminado correctamente'
-    ], 200);
-}
+        return response()->json([
+            'message' => 'Producto eliminado correctamente'
+        ], 200);
+    }
 }

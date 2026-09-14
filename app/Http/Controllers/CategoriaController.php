@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Services\CategoriasService;
 use App\Http\Requests\Categoria\StoreCategoriaRequest;
 use App\Http\Requests\Categoria\UpdateCategoriaRequest;
 use App\Models\Categoria;
 
+/**
+ * @group Categorías
+ *
+ * Gestión de las categorías de productos.
+ */
 class CategoriaController extends Controller
 {
     public function __construct(private CategoriasService $categoriaService)
     {}
-     public function index()
-     {
+
+    public function index()
+    {
         return response()->json([
             'success' => 'Se listaron correctamente',
-            'data'  => $this->categoriaService->list()
+            'data'    => $this->categoriaService->list()
         ]);
-     }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -28,7 +33,7 @@ class CategoriaController extends Controller
         $registroInsertado = $this->categoriaService->store($datos->validated());
 
         return response()->json([
-            'success' => 'La categoría se creó correctamente',
+            'success'         => 'La categoría se creó correctamente',
             'datosInsertados' => $registroInsertado
         ]);
     }
@@ -45,25 +50,24 @@ class CategoriaController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateCategoriaRequest $request, Categoria $categoria)
-{
-    $categoria->update($request->validated());
+    {
+        $categoria->update($request->validated());
 
-    return response()->json([
-        'success' => 'Categoría actualizada correctamente',
-        'data' => $categoria
-    ], 200);
-}
-
+        return response()->json([
+            'success' => 'Categoría actualizada correctamente',
+            'data'    => $categoria
+        ], 200);
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Categoria $categoria)
-{
-    $categoria->delete();
+    {
+        $categoria->delete();
 
-    return response()->json([
-        'message' => 'Categoría eliminada correctamente'
-    ], 200);
-}
+        return response()->json([
+            'message' => 'Categoría eliminada correctamente'
+        ], 200);
+    }
 }

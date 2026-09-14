@@ -6,6 +6,11 @@ use App\Services\DetallePedidoService;
 use App\Http\Requests\DetallePedidos\StoreDetallePedidoRequest;
 use App\Http\Requests\DetallePedidos\UpdateDetallePedidoRequest;
 
+/**
+ * @group Detalle de Pedidos
+ *
+ * Gestión de los detalles asociados a los pedidos.
+ */
 class DetallePedidoController extends Controller
 {
     public function __construct(

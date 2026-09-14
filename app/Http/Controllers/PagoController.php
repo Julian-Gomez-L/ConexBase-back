@@ -6,6 +6,11 @@ use App\Services\PagosService;
 use App\Http\Requests\Pagos\StorePagoRequest;
 use App\Http\Requests\Pagos\UpdatePagoRequest;
 
+/**
+ * @group Pagos
+ *
+ * Gestión de los pagos asociados a los pedidos.
+ */
 class PagoController extends Controller
 {
     public function __construct(
