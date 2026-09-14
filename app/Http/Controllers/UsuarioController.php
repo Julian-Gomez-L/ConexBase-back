@@ -7,6 +7,11 @@ use App\Http\Requests\Usuario\StoreUsuarioRequest;
 use App\Http\Requests\Usuario\UpdateUsuarioRequest;
 use App\Models\Usuario;
 
+/**
+ * @group Usuarios
+ *
+ * Gestión de los usuarios del sistema.
+ */
 class UsuarioController extends Controller
 {
     public function __construct(private UsuarioService $usuarioService)

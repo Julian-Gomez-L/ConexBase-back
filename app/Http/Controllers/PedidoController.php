@@ -6,6 +6,11 @@ use App\Services\PedidosService;
 use App\Http\Requests\Pedidos\StorePedidoRequest;
 use App\Http\Requests\Pedidos\UpdatePedidoRequest;
 
+/**
+ * @group Pedidos
+ *
+ * Gestión de los pedidos del sistema.
+ */
 class PedidoController extends Controller
 {
     public function __construct(

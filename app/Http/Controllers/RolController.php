@@ -7,6 +7,11 @@ use App\Http\Requests\Rol\StoreRolRequest;
 use App\Http\Requests\Rol\UpdateRolRequest;
 use App\Models\Rol;
 
+/**
+ * @group Roles
+ *
+ * Gestión de los roles del sistema.
+ */
 class RolController extends Controller
 {
     public function __construct(private RolService $rolService)
