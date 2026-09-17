@@ -12,4 +12,9 @@ class PagosRepository extends BaseRepository implements PagosInterface
         parent::__construct($produccionModel);
     }
 
+    public function getAllWithTrashed()
+    {
+        return $this->model->withTrashed()->get();
+    }
+
 }

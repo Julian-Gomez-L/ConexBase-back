@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            
+
             $table->foreignId('pedido_id')
                 ->constrained('pedidos')
                 ->onDelete('cascade');
@@ -22,6 +22,7 @@ return new class extends Migration {
             $table->string('metodo', 50);
             $table->date('fecha_pago');
             $table->string('comprobante', 255)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
