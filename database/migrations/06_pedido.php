@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            
+
             $table->foreignId('cliente_id')
                 ->constrained('clientes')
                 ->onDelete('cascade');
@@ -20,6 +20,7 @@ return new class extends Migration {
 
             $table->string('estado', 50);
             $table->decimal('total', 12, 2);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

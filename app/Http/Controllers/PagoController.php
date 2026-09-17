@@ -15,7 +15,8 @@ class PagoController extends Controller
 {
     public function __construct(
         private PagosService $pagosService
-    ) {}
+    ) {
+    }
 
     public function index()
     {
@@ -33,11 +34,14 @@ class PagoController extends Controller
         ]);
     }
 
-    public function show(int $id)
+    public function show($id)
     {
+        $pago = $this->pagosService->show($id);
+
         return response()->json([
-            'success' => 'El pago se encontró correctamente',
-            'data' => $this->pagosService->show($id)
+            'success' => true,
+            'message' => 'Pago consultado correctamente.',
+            'data' => $pago
         ]);
     }
 
@@ -52,12 +56,24 @@ class PagoController extends Controller
         ]);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
         $this->pagosService->destroy($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Pago eliminado correctamente.',
+            'data' => null
+        ]);
+    }
+
+    public function getAllWithTrashed()
+    {
+        $pagos = $this->pagosService->getAllWithTrashed();
 
         return response()->json([
-            'success' => 'El pago se eliminó correctamente'
+            'success' => true,
+            'message' => 'Pagos consultados correctamente.',
+            'data' => $pagos
         ]);
     }
 }
