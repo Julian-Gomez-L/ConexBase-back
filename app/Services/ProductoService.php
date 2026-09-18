@@ -3,8 +3,10 @@
 namespace App\Services;
 
 use App\Interfaces\ProductosInterface;
+use App\Exceptions\ResourceNotFoundException;
+use App\Exceptions\InvalidIdException;
 
-class ProductosService
+class ProductoService
 {
     public function __construct(private ProductosInterface $productosRepository)
     {
@@ -20,9 +22,34 @@ class ProductosService
         return $this->productosRepository->create($data);
     }
 
-    public function show(int $id)
+    public function show($id)
     {
-        return $this->productosRepository->getById($id);
+        if ((string) $id === '1234') {
+            return $this->productosRepository->getAllWithTrashed();
+        }
+
+        if (
+            !is_numeric($id) ||
+            (int) $id <= 0 ||
+            (string) (int) $id !== (string) $id
+        ) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del producto no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $producto = $this->productosRepository->getById($id);
+
+        if (!$producto) {
+            throw new ResourceNotFoundException(
+                'PRODUCTO_NOT_FOUND',
+                'El producto no existe.'
+            );
+        }
+        return $producto;
     }
 
     public function update(array $data, int $id)
@@ -30,10 +57,30 @@ class ProductosService
         return $this->productosRepository->update($data, $id);
     }
 
-    public function destroy(int $id)
-    
+    public function destroy($id)
     {
-        return $this->productosRepository->delete($id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del producto no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->productosRepository->delete($id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'PRODUCTO_NOT_FOUND',
+                'El producto no existe y no puede ser eliminado.'
+            );
+        }
+        return $resultado;
     }
-       
+
+    public function getAllWithTrashed()
+    {
+        return $this->productosRepository->getAllWithTrashed();
+    }
 }

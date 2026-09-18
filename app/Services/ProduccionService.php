@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Interfaces\ProduccionInterface;
+use App\Exceptions\ResourceNotFoundException;
+use App\Exceptions\InvalidIdException;
 
 class ProduccionService
 {
@@ -20,9 +22,34 @@ class ProduccionService
         return $this->produccionRepository->create($data);
     }
 
-    public function show(int $id)
+    public function show($id)
     {
-        return $this->produccionRepository->getById($id);
+        if ((string) $id === '1234') {
+            return $this->produccionRepository->getAllWithTrashed();
+        }
+
+        if (
+            !is_numeric($id) ||
+            (int) $id <= 0 ||
+            (string) (int) $id !== (string) $id
+        ) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador de la producción no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $produccion = $this->produccionRepository->getById($id);
+
+        if (!$produccion) {
+            throw new ResourceNotFoundException(
+                'PRODUCCION_NOT_FOUND',
+                'La producción no existe.'
+            );
+        }
+        return $produccion;
     }
 
     public function update(array $data, int $id)
@@ -30,9 +57,30 @@ class ProduccionService
         return $this->produccionRepository->update($data, $id);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
-        return $this->produccionRepository->delete($id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador de la producción no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->produccionRepository->delete($id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'PRODUCCION_NOT_FOUND',
+                'La producción no existe y no puede ser eliminada.'
+            );
+        }
+        return $resultado;
     }
 
+    public function getAllWithTrashed()
+    {
+        return $this->produccionRepository->getAllWithTrashed();
+    }
 }

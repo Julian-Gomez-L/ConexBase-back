@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\PagosService;
-use App\Http\Requests\Pagos\StorePagoRequest;
-use App\Http\Requests\Pagos\UpdatePagoRequest;
+use App\Http\Requests\Pago\StorePagoRequest;
+use App\Http\Requests\Pago\UpdatePagoRequest;
 
 /**
  * @group Pagos

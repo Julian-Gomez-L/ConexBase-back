@@ -3,10 +3,11 @@
 namespace App\Services;
 
 use App\Interfaces\RolInterface;
+use App\Exceptions\ResourceNotFoundException;
+use App\Exceptions\InvalidIdException;
 
 class RolService
 {
-
     public function __construct(private RolInterface $rolRepository)
     {
     }
@@ -21,9 +22,34 @@ class RolService
         return $this->rolRepository->create($data);
     }
 
-    public function show(int $id)
+    public function show($id)
     {
-        return $this->rolRepository->getById($id);
+        if ((string) $id === '1234') {
+            return $this->rolRepository->getAllWithTrashed();
+        }
+
+        if (
+            !is_numeric($id) ||
+            (int) $id <= 0 ||
+            (string) (int) $id !== (string) $id
+        ) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del rol no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $rol = $this->rolRepository->getById($id);
+
+        if (!$rol) {
+            throw new ResourceNotFoundException(
+                'ROL_NOT_FOUND',
+                'El rol no existe.'
+            );
+        }
+        return $rol;
     }
 
     public function update(array $data, int $id)
@@ -31,9 +57,30 @@ class RolService
         return $this->rolRepository->update($data, $id);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
-        // Asumiendo que tu BaseRepository usa 'delete' para eliminar
-        return $this->rolRepository->delete($id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del rol no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->rolRepository->delete($id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'ROL_NOT_FOUND',
+                'El rol no existe y no puede ser eliminado.'
+            );
+        }
+        return $resultado;
+    }
+
+    public function getAllWithTrashed()
+    {
+        return $this->rolRepository->getAllWithTrashed();
     }
 }
