@@ -52,14 +52,15 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUsuarioRequest $request, Usuario $usuario)
+    public function update(UpdateUsuarioRequest $request, int $id)
     {
-        $usuario->update($request->validated());
-
         return response()->json([
-            'success' => 'Usuario actualizado correctamente',
-            'data'    => $usuario
-        ], 200);
+            'success' => 'El usuario se actualizó correctamente',
+            'data' => $this->usuarioService->update(
+                $request->validated(),
+                $id
+            )
+        ]);
     }
 
     /**

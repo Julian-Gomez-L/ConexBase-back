@@ -52,14 +52,15 @@ class RolController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRolRequest $request, Rol $rol)
+    public function update(UpdateRolRequest $request, int $id)
     {
-        $rol->update($request->validated());
-
         return response()->json([
-            'success' => 'Rol actualizado correctamente',
-            'data'    => $rol
-        ], 200);
+            'success' => 'El rol se actualizó correctamente',
+            'data' => $this->rolService->update(
+                $request->validated(),
+                $id
+            )
+        ]);
     }
 
     /**
