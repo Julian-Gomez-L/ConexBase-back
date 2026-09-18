@@ -51,12 +51,17 @@ class TrabajosTapicerosController extends Controller
      */
     public function update(UpdateTrabajosTapicerosRequest $request, TrabajosTapiceros $trabajos_tapiceros)
     {
-        $trabajos_tapiceros->update($request->validated());
-
-        return response()->json([
-            'success' => 'Trabajos de tapiceros actualizados correctamente',
-            'data' => $trabajos_tapiceros
-        ], 200);
+       public function update(UpdateTrabajosTapicerosRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El TrabajosTapiceros se actualizó correctamente.',
+        'data' => $this->trabajos_tapicerosService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     /**

@@ -47,13 +47,17 @@ class DetallePedidoController extends Controller
         UpdateDetallePedidoRequest $request,
         int $id
     ) {
-        return response()->json([
-            'success' => 'El detalle de pedido se actualizó correctamente',
-            'data' => $this->detallePedidoService->update(
-                $request->validated(),
-                $id
-            )
-        ]);
+        public function update(UpdateDetallePedidoRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El detalle de pedido se actualizó correctamente.',
+        'data' => $this->detallePedidoService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     public function destroy($id)

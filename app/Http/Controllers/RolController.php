@@ -54,12 +54,17 @@ class RolController extends Controller
      */
     public function update(UpdateRolRequest $request, Rol $rol)
     {
-        $rol->update($request->validated());
-
-        return response()->json([
-            'success' => 'Rol actualizado correctamente',
-            'data'    => $rol
-        ], 200);
+        public function update(UpdateRolRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El Rol se actualizó correctamente.',
+        'data' => $this->rolService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     /**

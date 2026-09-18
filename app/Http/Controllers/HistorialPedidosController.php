@@ -51,12 +51,17 @@ class HistorialPedidosController extends Controller
      */
     public function update(UpdateHistorialPedidosRequest $request, HistorialPedidos $historialPedidos)
     {
-        $historialPedidos->update($request->validated());
-
-        return response()->json([
-            'success' => 'Historial de pedidos actualizado correctamente',
-            'data' => $historialPedidos
-        ], 200);
+       public function update(UpdateHistorialPedidosRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El historial de pedidos se actualizó correctamente.',
+        'data' => $this->historialPedidosService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     /**

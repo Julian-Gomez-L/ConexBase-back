@@ -51,12 +51,17 @@ class ProduccionController extends Controller
      */
     public function update(UpdateProduccionRequest $request, Produccion $produccion)
     {
-        $produccion->update($request->validated());
-
-        return response()->json([
-            'success' => 'Producción actualizada correctamente',
-            'data' => $produccion
-        ], 200);
+        public function update(UpdateProduccionRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'La producción se actualizó correctamente.',
+        'data' => $this->produccionService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     /**

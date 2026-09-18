@@ -44,13 +44,17 @@ class PedidoController extends Controller
 
     public function update(UpdatePedidoRequest $request, int $id)
     {
-        return response()->json([
-            'success' => 'El pedido se actualizó correctamente',
-            'data' => $this->pedidosService->update(
-                $request->validated(),
-                $id
-            )
-        ]);
+        public function update(UpdatePedidoRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El pedido se actualizó correctamente.',
+        'data' => $this->pedidosService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     public function destroy($id)

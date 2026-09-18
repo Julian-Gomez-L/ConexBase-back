@@ -51,12 +51,17 @@ class ProductoController extends Controller
      */
     public function update(UpdateProductoRequest $request, Producto $producto)
     {
-        $producto->update($request->validated());
-
-        return response()->json([
-            'success' => 'Producto actualizado correctamente',
-            'data' => $producto
-        ], 200);
+        public function update(UpdateProductosRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El Producto se actualizó correctamente.',
+        'data' => $this->productosService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     /**

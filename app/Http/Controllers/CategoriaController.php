@@ -50,16 +50,17 @@ class CategoriaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoriaRequest $request, Categoria $categoria)
-    {
-        $categoria->update($request->validated());
-
-        return response()->json([
-            'success' => 'Categoría actualizada correctamente',
-            'data' => $categoria
-        ], 200);
-    }
-
+    public function update(UpdateCategoriaRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'La categoría se actualizó correctamente.',
+        'data' => $this->categoriaService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     /**
      * Remove the specified resource from storage.
      */

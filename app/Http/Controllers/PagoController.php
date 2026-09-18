@@ -47,13 +47,17 @@ class PagoController extends Controller
 
     public function update(UpdatePagoRequest $request, int $id)
     {
-        return response()->json([
-            'success' => 'El pago se actualizó correctamente',
-            'data' => $this->pagosService->update(
-                $request->validated(),
-                $id
-            )
-        ]);
+        public function update(UpdatePagoRequest $request, int $id)
+{
+    return response()->json([
+        'success' => true,
+        'message' => 'El pago se actualizó correctamente.',
+        'data' => $this->pagosService->update(
+            $request->validated(),
+            $id
+        )
+    ], 200);
+}
     }
 
     public function destroy($id)
