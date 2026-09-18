@@ -6,7 +6,7 @@ use App\Interfaces\HistorialPedidosInterface;
 use App\Exceptions\ResourceNotFoundException;
 use App\Exceptions\InvalidIdException;
 
-class HistorialPedidosServiceService
+class HistorialPedidosService
 {
     public function __construct(private HistorialPedidosInterface $historialPedidosRepository)
     {
