@@ -49,14 +49,15 @@ class TrabajosTapicerosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTrabajosTapicerosRequest $request, TrabajosTapiceros $trabajos_tapiceros)
+    public function update(UpdateTrabajosTapicerosRequest $request, int $id)
     {
-        $trabajos_tapiceros->update($request->validated());
-
         return response()->json([
-            'success' => 'Trabajos de tapiceros actualizados correctamente',
-            'data' => $trabajos_tapiceros
-        ], 200);
+            'success' => 'Los trabajos de tapiceros se actualizaron correctamente',
+            'data' => $this->trabajos_tapicerosService->update(
+                $request->validated(),
+                $id
+            )
+        ]);
     }
 
     /**

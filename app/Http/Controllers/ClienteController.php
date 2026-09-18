@@ -49,14 +49,15 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateClienteRequest $request, Cliente $cliente)
+    public function update(UpdateClienteRequest $request, int $id)
     {
-        $cliente->update($request->validated());
-
         return response()->json([
-            'success' => 'Cliente actualizado correctamente',
-            'data'    => $cliente
-        ], 200);
+            'success' => 'El cliente se actualizó correctamente',
+            'data' => $this->clientesService->update(
+                $request->validated(),
+                $id
+            )
+        ]);
     }
 
     /**
