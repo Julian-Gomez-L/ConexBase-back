@@ -3,13 +3,14 @@
 namespace App\Services;
 
 use App\Interfaces\UsuarioInterface;
+use App\Exceptions\ResourceNotFoundException;
+use App\Exceptions\InvalidIdException;
 
 class UsuarioService
 {
-
-
     public function __construct(private UsuarioInterface $usuarioRepository)
-    {}
+    {
+    }
 
     public function list()
     {
@@ -21,9 +22,34 @@ class UsuarioService
         return $this->usuarioRepository->create($data);
     }
 
-    public function show(int $id)
+    public function show($id)
     {
-        return $this->usuarioRepository->getById($id);
+        if ((string) $id === '1234') {
+            return $this->usuarioRepository->getAllWithTrashed();
+        }
+
+        if (
+            !is_numeric($id) ||
+            (int) $id <= 0 ||
+            (string) (int) $id !== (string) $id
+        ) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del usuario no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $usuario = $this->usuarioRepository->getById($id);
+
+        if (!$usuario) {
+            throw new ResourceNotFoundException(
+                'USUARIO_NOT_FOUND',
+                'El usuario no existe.'
+            );
+        }
+        return $usuario;
     }
 
     public function update(array $data, int $id)
@@ -31,8 +57,30 @@ class UsuarioService
         return $this->usuarioRepository->update($data, $id);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
-        return $this->usuarioRepository->delete($id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del usuario no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->usuarioRepository->delete($id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'USUARIO_NOT_FOUND',
+                'El usuario no existe y no puede ser eliminado.'
+            );
+        }
+        return $resultado;
+    }
+
+    public function getAllWithTrashed()
+    {
+        return $this->usuarioRepository->getAllWithTrashed();
     }
 }

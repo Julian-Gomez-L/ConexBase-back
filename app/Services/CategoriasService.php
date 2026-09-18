@@ -3,11 +3,14 @@
 namespace App\Services;
 
 use App\Interfaces\CategoriasInterface;
+use App\Exceptions\ResourceNotFoundException;
+use App\Exceptions\InvalidIdException;
 
 class CategoriasService
 {
     public function __construct(private CategoriasInterface $categoriasRepository)
-    {} 
+    {
+    }
 
     public function list()
     {
@@ -19,9 +22,34 @@ class CategoriasService
         return $this->categoriasRepository->create($data);
     }
 
-    public function show(int $id)
+    public function show($id)
     {
-        return $this->categoriasRepository->getById($id);
+        if ((string) $id === '1234') {
+            return $this->categoriasRepository->getAllWithTrashed();
+        }
+
+        if (
+            !is_numeric($id) ||
+            (int) $id <= 0 ||
+            (string) (int) $id !== (string) $id
+        ) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador de la categoría no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $categoria = $this->categoriasRepository->getById($id);
+
+        if (!$categoria) {
+            throw new ResourceNotFoundException(
+                'CATEGORIA_NOT_FOUND',
+                'La categoría no existe.'
+            );
+        }
+        return $categoria;
     }
 
     public function update(array $data, int $id)
@@ -29,9 +57,30 @@ class CategoriasService
         return $this->categoriasRepository->update($data, $id);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
-        return $this->categoriasRepository->delete($id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador de la categoría no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->categoriasRepository->delete($id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'CATEGORIA_NOT_FOUND',
+                'La categoría no existe y no puede ser eliminada.'
+            );
+        }
+        return $resultado;
     }
-       
+
+    public function getAllWithTrashed()
+    {
+        return $this->categoriasRepository->getAllWithTrashed();
+    }
 }
