@@ -62,12 +62,13 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy($id)
     {
-        $producto->delete();
-
+       $this->productosService->destroy($id);
         return response()->json([
-            'message' => 'Producto eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Producto eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

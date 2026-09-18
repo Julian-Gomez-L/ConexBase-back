@@ -15,13 +15,14 @@ use App\Models\Categoria;
 class CategoriaController extends Controller
 {
     public function __construct(private CategoriasService $categoriaService)
-    {}
+    {
+    }
 
     public function index()
     {
         return response()->json([
             'success' => 'Se listaron correctamente',
-            'data'    => $this->categoriaService->list()
+            'data' => $this->categoriaService->list()
         ]);
     }
 
@@ -33,7 +34,7 @@ class CategoriaController extends Controller
         $registroInsertado = $this->categoriaService->store($datos->validated());
 
         return response()->json([
-            'success'         => 'La categoría se creó correctamente',
+            'success' => 'La categoría se creó correctamente',
             'datosInsertados' => $registroInsertado
         ]);
     }
@@ -55,19 +56,20 @@ class CategoriaController extends Controller
 
         return response()->json([
             'success' => 'Categoría actualizada correctamente',
-            'data'    => $categoria
+            'data' => $categoria
         ], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        $categoria->delete();
-
+        $this->categoriaService->destroy($id);
         return response()->json([
-            'message' => 'Categoría eliminada correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Categoría eliminada correctamente.',
+            'data' => null
+        ]);
     }
 }

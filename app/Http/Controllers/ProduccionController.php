@@ -62,12 +62,13 @@ class ProduccionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Produccion $produccion)
+    public function destroy($id)
     {
-        $produccion->delete();
-
+       $this->produccionService->destroy($id);
         return response()->json([
-            'message' => 'Producción eliminada correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Producción eliminada correctamente.',
+            'data' => null
+        ]);
     }
 }

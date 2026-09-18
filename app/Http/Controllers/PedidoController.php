@@ -53,12 +53,15 @@ class PedidoController extends Controller
         ]);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
         $this->pedidosService->destroy($id);
 
+        $this->pedidosService->destroy($id);
         return response()->json([
-            'success' => 'El pedido se eliminó correctamente'
+            'success' => true,
+            'message' => 'Pedido eliminado correctamente.',
+            'data' => null
         ]);
     }
 }

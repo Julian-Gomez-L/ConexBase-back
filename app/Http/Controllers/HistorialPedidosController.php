@@ -62,12 +62,13 @@ class HistorialPedidosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HistorialPedidos $historialPedidos)
+    public function destroy($id)
     {
-        $historialPedidos->delete();
-
+        $this->historialPedidosService->destroy($id);
         return response()->json([
-            'message' => 'Historial de pedidos eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Historial de pedidos eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

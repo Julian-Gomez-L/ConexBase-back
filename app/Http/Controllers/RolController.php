@@ -65,12 +65,13 @@ class RolController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rol $rol)
+    public function destroy($id)
     {
-        $rol->delete();
-
+        $this->rolService->destroy($id);
         return response()->json([
-            'message' => 'Rol eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Rol eliminada correctamente.',
+            'data' => null
+        ]);
     }
 }
