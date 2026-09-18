@@ -49,14 +49,15 @@ class ProduccionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProduccionRequest $request, Produccion $produccion)
+    public function update(UpdateProduccionRequest $request, int $id)
     {
-        $produccion->update($request->validated());
-
         return response()->json([
-            'success' => 'Producción actualizada correctamente',
-            'data' => $produccion
-        ], 200);
+            'success' => 'La producción se actualizó correctamente',
+            'data' => $this->produccionService->update(
+                $request->validated(),
+                $id
+            )
+        ]);
     }
 
     /**
