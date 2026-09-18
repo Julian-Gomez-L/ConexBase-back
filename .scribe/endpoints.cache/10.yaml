@@ -36,7 +36,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"Se listaron correctamente","data":[]}'
+        content: '{"success":"Se listaron correctamente","data":[{"pedido_id":1,"usuario_id":2,"cliente_id":1,"id":1,"estado_anterior":null,"estado_nuevo":"Pendiente","observacion":"Pedido creado","fecha":"2026-09-01 09:00:00","created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"pedido_id":2,"usuario_id":2,"cliente_id":2,"id":2,"estado_anterior":null,"estado_nuevo":"Pendiente","observacion":"Pedido creado","fecha":"2026-09-02 10:00:00","created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"pedido_id":2,"usuario_id":3,"cliente_id":2,"id":3,"estado_anterior":"Pendiente","estado_nuevo":"En producci\u00f3n","observacion":"Pedido enviado a producci\u00f3n","fecha":"2026-09-03 08:00:00","created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"pedido_id":3,"usuario_id":2,"cliente_id":3,"id":4,"estado_anterior":null,"estado_nuevo":"En producci\u00f3n","observacion":"Pedido creado y enviado a producci\u00f3n","fecha":"2026-08-25 09:00:00","created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"pedido_id":3,"usuario_id":1,"cliente_id":3,"id":5,"estado_anterior":"En producci\u00f3n","estado_nuevo":"Entregado","observacion":"Pedido entregado al cliente","fecha":"2026-08-30 16:00:00","created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -110,7 +110,7 @@ endpoints:
         name: fecha
         description: 'Must be a valid date.'
         required: true
-        example: '2026-09-14T20:46:29'
+        example: '2026-09-17T23:53:26'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -120,7 +120,7 @@ endpoints:
       id_pedido: 16
       estado: architecto
       observaciones: architecto
-      fecha: '2026-09-14T20:46:29'
+      fecha: '2026-09-17T23:53:26'
     fileParameters: []
     responses: []
     responseFields: []
@@ -212,14 +212,14 @@ endpoints:
         name: id
         description: 'The ID of the historial pedido.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -228,7 +228,7 @@ endpoints:
         name: fecha_inicio
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-14T20:46:29'
+        example: '2026-09-17T23:53:26'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -239,7 +239,7 @@ endpoints:
         name: fecha_fin
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-14T20:46:29'
+        example: '2026-09-17T23:53:26'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -312,8 +312,8 @@ endpoints:
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      fecha_inicio: '2026-09-14T20:46:29'
-      fecha_fin: '2026-09-14T20:46:29'
+      fecha_inicio: '2026-09-17T23:53:26'
+      fecha_fin: '2026-09-17T23:53:26'
       estado: architecto
       observaciones: architecto
       id_pedido: 16
@@ -353,14 +353,14 @@ endpoints:
         name: id
         description: 'The ID of the historial pedido.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

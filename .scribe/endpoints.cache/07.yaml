@@ -36,7 +36,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"Los pagos se listaron correctamente","data":[]}'
+        content: '{"success":"Los pagos se listaron correctamente","data":[{"id":1,"pedido_id":1,"usuario_id":2,"monto":"2000000.00","metodo":"Transferencia","fecha_pago":"2026-09-01","comprobante":"COMP-0001","deleted_at":null,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"id":2,"pedido_id":2,"usuario_id":2,"monto":"650000.00","metodo":"Efectivo","fecha_pago":"2026-09-02","comprobante":"COMP-0002","deleted_at":null,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"id":3,"pedido_id":3,"usuario_id":2,"monto":"1550000.00","metodo":"Transferencia","fecha_pago":"2026-09-03","comprobante":"COMP-0003","deleted_at":null,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -106,14 +106,14 @@ endpoints:
         name: id
         description: 'The ID of the pago.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -123,7 +123,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"El pago se encontr\u00f3 correctamente","data":null}'
+        content: '{"success":true,"message":"Pago consultado correctamente.","data":{"id":1,"pedido_id":1,"usuario_id":2,"monto":"2000000.00","metodo":"Transferencia","fecha_pago":"2026-09-01","comprobante":"COMP-0001","deleted_at":null,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -161,14 +161,14 @@ endpoints:
         name: id
         description: 'The ID of the pago.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -206,14 +206,14 @@ endpoints:
         name: id
         description: 'The ID of the pago.'
         required: true
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
