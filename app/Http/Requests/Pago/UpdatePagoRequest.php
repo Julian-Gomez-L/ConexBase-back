@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Pagos;
+namespace App\Http\Requests\Pago;
 
 use Illuminate\Foundation\Http\FormRequest;
 
