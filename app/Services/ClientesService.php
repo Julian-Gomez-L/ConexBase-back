@@ -52,9 +52,26 @@ class ClientesService
         return $cliente;
     }
 
-    public function update(array $data, int $id)
+   public function update(array $data, $id)
     {
-        return $this->clientesRepository->update($data, $id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del cliente no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->clientesRepository->update($data, $id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'CLIENTE_NOT_FOUND',
+                'El cliente no existe y no puede ser actualizado.'
+            );
+        }
+        return $resultado;
     }
 
     public function destroy($id)

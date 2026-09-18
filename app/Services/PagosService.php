@@ -52,9 +52,26 @@ class PagosService
         return $pago;
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, $id)
     {
-        return $this->pagosRepository->update($data, $id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del pago no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->pagosRepository->update($data, $id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'PAGO_NOT_FOUND',
+                'El pago no existe y no puede ser actualizado.'
+            );
+        }
+        return $resultado;
     }
 
     public function destroy($id)

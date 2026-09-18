@@ -52,9 +52,26 @@ class UsuarioService
         return $usuario;
     }
 
-    public function update(array $data, int $id)
+   public function update(array $data, $id)
     {
-        return $this->usuarioRepository->update($data, $id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del usuario no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->usuarioRepository->update($data, $id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'USUARIO_NOT_FOUND',
+                'El usuario no existe y no puede ser actualizado.'
+            );
+        }
+        return $resultado;
     }
 
     public function destroy($id)

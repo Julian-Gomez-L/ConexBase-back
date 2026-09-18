@@ -52,9 +52,26 @@ class RolService
         return $rol;
     }
 
-    public function update(array $data, int $id)
+   public function update(array $data, $id)
     {
-        return $this->rolRepository->update($data, $id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador del rol no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->rolRepository->update($data, $id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'ROL_NOT_FOUND',
+                'El rol no existe y no puede ser actualizado.'
+            );
+        }
+        return $resultado;
     }
 
     public function destroy($id)

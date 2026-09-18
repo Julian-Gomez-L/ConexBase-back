@@ -31,15 +31,12 @@ class BaseRepository implements BaseInterface
 
     public function update(array $data, int $id)
     {
-        /** @var Model|null $registro */  //se pone comentarios para que no marque error de tipado
+        /** @var Model|null $registro */
         $registro = $this->model->find($id);
-
         if (!$registro) {
             return null;
         }
-
         $registro->update($data);
-
         return $registro->fresh();
     }
 

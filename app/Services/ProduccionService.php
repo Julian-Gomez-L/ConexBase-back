@@ -52,9 +52,26 @@ class ProduccionService
         return $produccion;
     }
 
-    public function update(array $data, int $id)
+    public function update(array $data, $id)
     {
-        return $this->produccionRepository->update($data, $id);
+        if (!is_numeric($id) || (int) $id <= 0) {
+            throw new InvalidIdException(
+                'INVALID_ID',
+                'El identificador de la producción no es válido.'
+            );
+        }
+
+        $id = (int) $id;
+
+        $resultado = $this->produccionRepository->update($data, $id);
+
+        if (!$resultado) {
+            throw new ResourceNotFoundException(
+                'PRODUCCION_NOT_FOUND',
+                'La producción no existe y no puede ser actualizada.'
+            );
+        }
+        return $resultado;
     }
 
     public function destroy($id)
