@@ -34,7 +34,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"Se listaron correctamente","data":[{"id":1,"nombre":"Administrador","descripcion":"Usuario con acceso completo al sistema","estado":true,"created_at":"2026-09-17T23:48:30.000000Z","updated_at":"2026-09-17T23:48:30.000000Z"},{"id":2,"nombre":"Vendedor","descripcion":"Usuario encargado de realizar ventas y pedidos","estado":true,"created_at":"2026-09-17T23:48:30.000000Z","updated_at":"2026-09-17T23:48:30.000000Z"},{"id":3,"nombre":"Encargado de Producci\u00f3n","descripcion":"Usuario encargado de gestionar la producci\u00f3n","estado":true,"created_at":"2026-09-17T23:48:30.000000Z","updated_at":"2026-09-17T23:48:30.000000Z"},{"id":4,"nombre":"Tapicero","descripcion":"Usuario encargado de realizar trabajos de tapicer\u00eda","estado":true,"created_at":"2026-09-17T23:48:30.000000Z","updated_at":"2026-09-17T23:48:30.000000Z"}]}'
+        content: '{"success":"Se listaron correctamente","data":[{"id":1,"nombre":"Administrador","descripcion":"Usuario con acceso completo al sistema","estado":true,"created_at":"2026-09-19T01:51:06.000000Z","updated_at":"2026-09-19T01:51:06.000000Z","deleted_at":null},{"id":2,"nombre":"Vendedor","descripcion":"Usuario encargado de realizar ventas y pedidos","estado":true,"created_at":"2026-09-19T01:51:06.000000Z","updated_at":"2026-09-19T01:51:06.000000Z","deleted_at":null},{"id":3,"nombre":"Encargado de Producci\u00f3n","descripcion":"Usuario encargado de gestionar la producci\u00f3n","estado":true,"created_at":"2026-09-19T01:51:06.000000Z","updated_at":"2026-09-19T01:51:06.000000Z","deleted_at":null},{"id":4,"nombre":"Tapicero","descripcion":"Usuario encargado de realizar trabajos de tapicer\u00eda","estado":true,"created_at":"2026-09-19T01:51:06.000000Z","updated_at":"2026-09-19T01:51:06.000000Z","deleted_at":null}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -174,14 +174,14 @@ endpoints:
         name: id
         description: 'The ID of the role.'
         required: true
-        example: 1
-        type: integer
+        example: architecto
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:

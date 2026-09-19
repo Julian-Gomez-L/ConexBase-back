@@ -31,7 +31,7 @@ class CategoriasService
         if (
             !is_numeric($id) ||
             (int) $id <= 0 ||
-            (string) (int) $id !== (string) $id
+            (string) (int) $id !== (string) $id //!== significa que no es un número entero positivo
         ) {
             throw new InvalidIdException(
                 'INVALID_ID',

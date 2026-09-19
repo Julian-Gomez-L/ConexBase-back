@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\TrabajosTapicerosService;
 use App\Http\Requests\TrabajosTapiceros\StoreTrabajosTapicerosRequest;
 use App\Http\Requests\TrabajosTapiceros\UpdateTrabajosTapicerosRequest;
-use App\Models\TrabajosTapiceros;
+
 
 /**
  * @group Trabajos Tapiceros
@@ -63,12 +63,13 @@ class TrabajosTapicerosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TrabajosTapiceros $trabajos_tapiceros)
+    public function destroy($id)
     {
-        $trabajos_tapiceros->delete();
-
+        $this->trabajos_tapicerosService->destroy($id);
         return response()->json([
-            'message' => 'Trabajos de tapiceros eliminados correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Trabajo de tapicero eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

@@ -21,6 +21,7 @@ return new class extends Migration
          $table->string("direccion",255)->nullable();
          $table->boolean("estado")->default(1);
          $table->timestamps();
+         $table->softDeletes();
             //
         });
     }

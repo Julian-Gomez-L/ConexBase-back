@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\ProductoService;
 use App\Http\Requests\Producto\StoreProductoRequest;
 use App\Http\Requests\Producto\UpdateProductoRequest;
-use App\Models\Producto;
+
 
 /**
  * @group Productos
@@ -63,12 +63,13 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy($id)
     {
-        $producto->delete();
-
+        $this->productoService->destroy($id);
         return response()->json([
-            'message' => 'Producto eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Producto eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

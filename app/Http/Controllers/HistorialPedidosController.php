@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\HistorialPedidosService;
 use App\Http\Requests\HistorialPedidos\StoreHistorialPedidosRequest;
 use App\Http\Requests\HistorialPedidos\UpdateHistorialPedidosRequest;
-use App\Models\HistorialPedidos;
+
 
 /**
  * @group Historial de Pedidos
@@ -63,12 +63,13 @@ class HistorialPedidosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HistorialPedidos $historialPedidos)
+    public function destroy($id)
     {
-        $historialPedidos->delete();
-
+        $this->historialPedidosService->destroy($id);
         return response()->json([
-            'message' => 'Historial de pedidos eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Historial de pedidos eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

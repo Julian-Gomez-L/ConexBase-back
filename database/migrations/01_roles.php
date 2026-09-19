@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('descripcion')->nullable(); // Columna opcional para la descripción
             $table->boolean('estado')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

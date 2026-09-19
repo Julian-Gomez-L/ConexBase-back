@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\UsuarioService;
 use App\Http\Requests\Usuario\StoreUsuarioRequest;
 use App\Http\Requests\Usuario\UpdateUsuarioRequest;
-use App\Models\Usuario;
+
 
 /**
  * @group Usuarios
@@ -66,12 +66,13 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy($id)
     {
-        $usuario->delete();
-
+        $this->usuarioService->destroy($id);
         return response()->json([
-            'message' => 'Usuario eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Usuario eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

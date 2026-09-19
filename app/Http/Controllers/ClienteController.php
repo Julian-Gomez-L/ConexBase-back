@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\ClientesService;
 use App\Http\Requests\Cliente\StoreClienteRequest;
 use App\Http\Requests\Cliente\UpdateClienteRequest;
-use App\Models\Cliente;
+
 
 /**
  * @group Clientes
@@ -63,12 +63,13 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $cliente)
+    public function destroy($id)
     {
-        $cliente->delete();
-
+        $this->clientesService->destroy($id);
         return response()->json([
-            'message' => 'Cliente eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Cliente eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }

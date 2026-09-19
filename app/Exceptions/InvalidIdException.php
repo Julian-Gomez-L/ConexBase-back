@@ -6,7 +6,7 @@ use Exception;
 
 class InvalidIdException extends Exception
 {
-    public string $errorCode;
+    public string $errorCode; //atributo
 
     public function __construct(
         string $errorCode,

@@ -317,7 +317,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 17, 2026</li>
+        <li>Last updated: September 19, 2026</li>
     </ul>
 </div>
 
@@ -397,24 +397,27 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Sala&quot;,
             &quot;descripcion&quot;: &quot;Muebles destinados para salas y espacios de descanso&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 2,
             &quot;nombre&quot;: &quot;Sillas&quot;,
             &quot;descripcion&quot;: &quot;Sillas para diferentes espacios del hogar&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 3,
             &quot;nombre&quot;: &quot;Mesas&quot;,
             &quot;descripcion&quot;: &quot;Mesas para comedor y otros espacios&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         }
     ]
 }</code>
@@ -1128,8 +1131,9 @@ access-control-allow-origin: *
             &quot;correo&quot;: &quot;pedro@gmail.com&quot;,
             &quot;direccion&quot;: &quot;Calle 10 # 20-30&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 2,
@@ -1139,8 +1143,9 @@ access-control-allow-origin: *
             &quot;correo&quot;: &quot;laura@gmail.com&quot;,
             &quot;direccion&quot;: &quot;Carrera 15 # 40-20&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 3,
@@ -1150,8 +1155,9 @@ access-control-allow-origin: *
             &quot;correo&quot;: &quot;maria@gmail.com&quot;,
             &quot;direccion&quot;: &quot;Calle 80 # 12-15&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         }
     ]
 }</code>
@@ -1252,7 +1258,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"documento\": \"gzmiyvdljnikhway\",
     \"telefono\": \"kcmyuwpwlvqwrsit\",
     \"email\": \"okeefe.isidro@example.org\",
-    \"fecha_nacimiento\": \"2026-09-17T23:53:26\",
+    \"fecha_nacimiento\": \"2026-09-19T01:51:13\",
     \"direccion\": \"l\"
 }"
 </code></pre></div>
@@ -1274,7 +1280,7 @@ let body = {
     "documento": "gzmiyvdljnikhway",
     "telefono": "kcmyuwpwlvqwrsit",
     "email": "okeefe.isidro@example.org",
-    "fecha_nacimiento": "2026-09-17T23:53:26",
+    "fecha_nacimiento": "2026-09-19T01:51:13",
     "direccion": "l"
 };
 
@@ -1427,10 +1433,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_nacimiento"                data-endpoint="POSTapi-clientes"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>direccion</code></b>&nbsp;&nbsp;
@@ -1606,7 +1612,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"documento\": \"gzmiyvdljnikhway\",
     \"telefono\": \"kcmyuwpwlvqwrsit\",
     \"email\": \"okeefe.isidro@example.org\",
-    \"fecha_nacimiento\": \"2026-09-17T23:53:26\",
+    \"fecha_nacimiento\": \"2026-09-19T01:51:13\",
     \"direccion\": \"l\"
 }"
 </code></pre></div>
@@ -1628,7 +1634,7 @@ let body = {
     "documento": "gzmiyvdljnikhway",
     "telefono": "kcmyuwpwlvqwrsit",
     "email": "okeefe.isidro@example.org",
-    "fecha_nacimiento": "2026-09-17T23:53:26",
+    "fecha_nacimiento": "2026-09-19T01:51:13",
     "direccion": "l"
 };
 
@@ -1798,10 +1804,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_nacimiento"                data-endpoint="PUTapi-clientes--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>direccion</code></b>&nbsp;&nbsp;
@@ -2004,8 +2010,9 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;1500000.00&quot;,
             &quot;subtotal&quot;: &quot;1500000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 2,
@@ -2014,8 +2021,9 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 2,
             &quot;precio_unitario&quot;: &quot;250000.00&quot;,
             &quot;subtotal&quot;: &quot;500000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 3,
@@ -2024,8 +2032,9 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 2,
             &quot;precio_unitario&quot;: &quot;250000.00&quot;,
             &quot;subtotal&quot;: &quot;500000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 4,
@@ -2034,8 +2043,9 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;800000.00&quot;,
             &quot;subtotal&quot;: &quot;800000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 5,
@@ -2044,8 +2054,9 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;1100000.00&quot;,
             &quot;subtotal&quot;: &quot;1100000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 6,
@@ -2054,8 +2065,9 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;450000.00&quot;,
             &quot;subtotal&quot;: &quot;450000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         }
     ]
 }</code>
@@ -2303,8 +2315,9 @@ access-control-allow-origin: *
         &quot;cantidad&quot;: 1,
         &quot;precio_unitario&quot;: &quot;1500000.00&quot;,
         &quot;subtotal&quot;: &quot;1500000.00&quot;,
-        &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+        &quot;deleted_at&quot;: null
     }
 }</code>
  </pre>
@@ -2712,8 +2725,9 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;Pendiente&quot;,
             &quot;observacion&quot;: &quot;Pedido creado&quot;,
             &quot;fecha&quot;: &quot;2026-09-01 09:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;pedido_id&quot;: 2,
@@ -2724,8 +2738,9 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;Pendiente&quot;,
             &quot;observacion&quot;: &quot;Pedido creado&quot;,
             &quot;fecha&quot;: &quot;2026-09-02 10:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;pedido_id&quot;: 2,
@@ -2736,8 +2751,9 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;En producci&oacute;n&quot;,
             &quot;observacion&quot;: &quot;Pedido enviado a producci&oacute;n&quot;,
             &quot;fecha&quot;: &quot;2026-09-03 08:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;pedido_id&quot;: 3,
@@ -2748,8 +2764,9 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;En producci&oacute;n&quot;,
             &quot;observacion&quot;: &quot;Pedido creado y enviado a producci&oacute;n&quot;,
             &quot;fecha&quot;: &quot;2026-08-25 09:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;pedido_id&quot;: 3,
@@ -2760,8 +2777,9 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;Entregado&quot;,
             &quot;observacion&quot;: &quot;Pedido entregado al cliente&quot;,
             &quot;fecha&quot;: &quot;2026-08-30 16:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         }
     ]
 }</code>
@@ -2860,7 +2878,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"id_pedido\": 16,
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
-    \"fecha\": \"2026-09-17T23:53:26\"
+    \"fecha\": \"2026-09-19T01:51:13\"
 }"
 </code></pre></div>
 
@@ -2879,7 +2897,7 @@ let body = {
     "id_pedido": 16,
     "estado": "architecto",
     "observaciones": "architecto",
-    "fecha": "2026-09-17T23:53:26"
+    "fecha": "2026-09-19T01:51:13"
 };
 
 fetch(url, {
@@ -3007,10 +3025,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha"                data-endpoint="POSTapi-historial-pedidos"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
         </form>
 
@@ -3167,12 +3185,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/historial-pedidos/1" \
+    "http://localhost/api/historial-pedidos/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-17T23:53:26\",
-    \"fecha_fin\": \"2026-09-17T23:53:26\",
+    \"fecha_inicio\": \"2026-09-19T01:51:13\",
+    \"fecha_fin\": \"2026-09-19T01:51:13\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
     \"id_pedido\": 16,
@@ -3185,7 +3203,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/historial-pedidos/1"
+    "http://localhost/api/historial-pedidos/architecto"
 );
 
 const headers = {
@@ -3194,8 +3212,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-17T23:53:26",
-    "fecha_fin": "2026-09-17T23:53:26",
+    "fecha_inicio": "2026-09-19T01:51:13",
+    "fecha_fin": "2026-09-19T01:51:13",
     "estado": "architecto",
     "observaciones": "architecto",
     "id_pedido": 16,
@@ -3292,15 +3310,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-historial-pedidos--id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-historial-pedidos--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the historial pedido. Example: <code>1</code></p>
+<p>The ID of the historial pedido. Example: <code>architecto</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3310,10 +3328,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-historial-pedidos--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -3322,10 +3340,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-historial-pedidos--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -3590,8 +3608,8 @@ access-control-allow-origin: *
             &quot;fecha_pago&quot;: &quot;2026-09-01&quot;,
             &quot;comprobante&quot;: &quot;COMP-0001&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -3602,8 +3620,8 @@ access-control-allow-origin: *
             &quot;fecha_pago&quot;: &quot;2026-09-02&quot;,
             &quot;comprobante&quot;: &quot;COMP-0002&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
@@ -3614,8 +3632,8 @@ access-control-allow-origin: *
             &quot;fecha_pago&quot;: &quot;2026-09-03&quot;,
             &quot;comprobante&quot;: &quot;COMP-0003&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
         }
     ]
 }</code>
@@ -3709,7 +3727,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/pagos" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"pedido_id\": \"architecto\",
+    \"usuario_id\": \"architecto\",
+    \"monto\": 39,
+    \"metodo\": \"architecto\",
+    \"fecha_pago\": \"2026-09-19T01:51:13\",
+    \"comprobante\": \"architecto\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3722,10 +3749,19 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "pedido_id": "architecto",
+    "usuario_id": "architecto",
+    "monto": 39,
+    "metodo": "architecto",
+    "fecha_pago": "2026-09-19T01:51:13",
+    "comprobante": "architecto"
+};
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -3803,7 +3839,80 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>pedido_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="pedido_id"                data-endpoint="POSTapi-pagos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Must match an existing stored value. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="POSTapi-pagos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Must match an existing stored value. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="monto"                data-endpoint="POSTapi-pagos"
+               value="39"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>39</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>metodo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="metodo"                data-endpoint="POSTapi-pagos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>fecha_pago</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="fecha_pago"                data-endpoint="POSTapi-pagos"
+               value="2026-09-19T01:51:13"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comprobante</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comprobante"                data-endpoint="POSTapi-pagos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
 
                     <h2 id="pagos-GETapi-pagos--id-">GET api/pagos/{id}</h2>
 
@@ -3866,8 +3975,8 @@ access-control-allow-origin: *
         &quot;fecha_pago&quot;: &quot;2026-09-01&quot;,
         &quot;comprobante&quot;: &quot;COMP-0001&quot;,
         &quot;deleted_at&quot;: null,
-        &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
     }
 }</code>
  </pre>
@@ -3973,7 +4082,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost/api/pagos/1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"monto\": 27,
+    \"metodo\": \"architecto\",
+    \"fecha_pago\": \"2026-09-19T01:51:13\",
+    \"comprobante\": \"architecto\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3986,10 +4102,17 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "monto": 27,
+    "metodo": "architecto",
+    "fecha_pago": "2026-09-19T01:51:13",
+    "comprobante": "architecto"
+};
 
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4084,7 +4207,80 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the pago. Example: <code>1</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>pedido_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="pedido_id"                data-endpoint="PUTapi-pagos--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must match an existing stored value.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="PUTapi-pagos--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must match an existing stored value.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>monto</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="monto"                data-endpoint="PUTapi-pagos--id-"
+               value="27"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>27</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>metodo</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="metodo"                data-endpoint="PUTapi-pagos--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>fecha_pago</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="fecha_pago"                data-endpoint="PUTapi-pagos--id-"
+               value="2026-09-19T01:51:13"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>comprobante</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="comprobante"                data-endpoint="PUTapi-pagos--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+        </form>
 
                     <h2 id="pagos-DELETEapi-pagos--id-">DELETE api/pagos/{id}</h2>
 
@@ -4273,8 +4469,8 @@ access-control-allow-origin: *
             &quot;estado&quot;: &quot;Pendiente&quot;,
             &quot;total&quot;: &quot;2000000.00&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -4283,8 +4479,8 @@ access-control-allow-origin: *
             &quot;estado&quot;: &quot;En producci&oacute;n&quot;,
             &quot;total&quot;: &quot;1300000.00&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
@@ -4293,8 +4489,8 @@ access-control-allow-origin: *
             &quot;estado&quot;: &quot;Entregado&quot;,
             &quot;total&quot;: &quot;1250000.00&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
         }
     ]
 }</code>
@@ -4542,8 +4738,8 @@ access-control-allow-origin: *
         &quot;estado&quot;: &quot;Pendiente&quot;,
         &quot;total&quot;: &quot;2000000.00&quot;,
         &quot;deleted_at&quot;: null,
-        &quot;created_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-09-17T23:48:31.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
     }
 }</code>
  </pre>
@@ -5034,8 +5230,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-17T23:53:26\",
-    \"fecha_fin\": \"2026-09-17T23:53:26\",
+    \"fecha_inicio\": \"2026-09-19T01:51:13\",
+    \"fecha_fin\": \"2026-09-19T01:51:13\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
     \"id_pedido\": 16,
@@ -5057,8 +5253,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-17T23:53:26",
-    "fecha_fin": "2026-09-17T23:53:26",
+    "fecha_inicio": "2026-09-19T01:51:13",
+    "fecha_fin": "2026-09-19T01:51:13",
     "estado": "architecto",
     "observaciones": "architecto",
     "id_pedido": 16,
@@ -5156,10 +5352,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="POSTapi-producciones"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -5168,10 +5364,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="POSTapi-producciones"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -5400,12 +5596,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/producciones/16" \
+    "http://localhost/api/producciones/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-17T23:53:26\",
-    \"fecha_fin\": \"2026-09-17T23:53:26\",
+    \"fecha_inicio\": \"2026-09-19T01:51:13\",
+    \"fecha_fin\": \"2026-09-19T01:51:13\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
     \"id_pedido\": 16,
@@ -5418,7 +5614,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/producciones/16"
+    "http://localhost/api/producciones/architecto"
 );
 
 const headers = {
@@ -5427,8 +5623,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-17T23:53:26",
-    "fecha_fin": "2026-09-17T23:53:26",
+    "fecha_inicio": "2026-09-19T01:51:13",
+    "fecha_fin": "2026-09-19T01:51:13",
     "estado": "architecto",
     "observaciones": "architecto",
     "id_pedido": 16,
@@ -5525,15 +5721,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-producciones--id-"
-               value="16"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-producciones--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the produccione. Example: <code>16</code></p>
+<p>The ID of the produccione. Example: <code>architecto</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5543,10 +5739,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-producciones--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -5555,10 +5751,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-producciones--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -6090,14 +6286,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/productos/architecto" \
+    --get "http://localhost/api/productos/16" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/productos/architecto"
+    "http://localhost/api/productos/16"
 );
 
 const headers = {
@@ -6115,20 +6311,18 @@ fetch(url, {
 
 <span id="example-responses-GETapi-productos--id-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
+            <pre><code class="language-http">content-type: text/html; charset=utf-8
+cache-control: no-cache, private
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
-}</code>
+<code class="language-json" style="max-height: 300px;"></code>
  </pre>
     </span>
 <span id="execution-results-GETapi-productos--id-" hidden>
@@ -6205,15 +6399,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="GETapi-productos--id-"
-               value="architecto"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-productos--id-"
+               value="16"
                data-component="url">
     <br>
-<p>The ID of the producto. Example: <code>architecto</code></p>
+<p>The ID of the producto. Example: <code>16</code></p>
             </div>
                     </form>
 
@@ -6607,32 +6801,36 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Administrador&quot;,
             &quot;descripcion&quot;: &quot;Usuario con acceso completo al sistema&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 2,
             &quot;nombre&quot;: &quot;Vendedor&quot;,
             &quot;descripcion&quot;: &quot;Usuario encargado de realizar ventas y pedidos&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 3,
             &quot;nombre&quot;: &quot;Encargado de Producci&oacute;n&quot;,
             &quot;descripcion&quot;: &quot;Usuario encargado de gestionar la producci&oacute;n&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         },
         {
             &quot;id&quot;: 4,
             &quot;nombre&quot;: &quot;Tapicero&quot;,
             &quot;descripcion&quot;: &quot;Usuario encargado de realizar trabajos de tapicer&iacute;a&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-17T23:48:30.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;deleted_at&quot;: null
         }
     ]
 }</code>
@@ -6996,7 +7194,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/roles/1" \
+    "http://localhost/api/roles/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7007,7 +7205,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/roles/1"
+    "http://localhost/api/roles/architecto"
 );
 
 const headers = {
@@ -7107,15 +7305,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-roles--id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-roles--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the role. Example: <code>1</code></p>
+<p>The ID of the role. Example: <code>architecto</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -7405,8 +7603,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"descripcion\": \"architecto\",
-    \"fecha_inicio\": \"2026-09-17T23:53:26\",
-    \"fecha_fin\": \"2026-09-17T23:53:26\",
+    \"fecha_inicio\": \"2026-09-19T01:51:13\",
+    \"fecha_fin\": \"2026-09-19T01:51:13\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\"
 }"
@@ -7425,8 +7623,8 @@ const headers = {
 
 let body = {
     "descripcion": "architecto",
-    "fecha_inicio": "2026-09-17T23:53:26",
-    "fecha_fin": "2026-09-17T23:53:26",
+    "fecha_inicio": "2026-09-19T01:51:13",
+    "fecha_fin": "2026-09-19T01:51:13",
     "estado": "architecto",
     "observaciones": "architecto"
 };
@@ -7532,10 +7730,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="POSTapi-trabajos-tapiceros"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -7544,10 +7742,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="POSTapi-trabajos-tapiceros"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -7728,12 +7926,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/trabajos-tapiceros/16" \
+    "http://localhost/api/trabajos-tapiceros/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-17T23:53:26\",
-    \"fecha_fin\": \"2026-09-17T23:53:26\",
+    \"fecha_inicio\": \"2026-09-19T01:51:13\",
+    \"fecha_fin\": \"2026-09-19T01:51:13\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\"
 }"
@@ -7742,7 +7940,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/trabajos-tapiceros/16"
+    "http://localhost/api/trabajos-tapiceros/architecto"
 );
 
 const headers = {
@@ -7751,8 +7949,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-17T23:53:26",
-    "fecha_fin": "2026-09-17T23:53:26",
+    "fecha_inicio": "2026-09-19T01:51:13",
+    "fecha_fin": "2026-09-19T01:51:13",
     "estado": "architecto",
     "observaciones": "architecto"
 };
@@ -7845,15 +8043,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="PUTapi-trabajos-tapiceros--id-"
-               value="16"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-trabajos-tapiceros--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the trabajos tapicero. Example: <code>16</code></p>
+<p>The ID of the trabajos tapicero. Example: <code>architecto</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -7863,10 +8061,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-trabajos-tapiceros--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -7875,10 +8073,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-trabajos-tapiceros--id-"
-               value="2026-09-17T23:53:26"
+               value="2026-09-19T01:51:13"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-17T23:53:26</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;

@@ -34,7 +34,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"Se listaron correctamente","data":[{"id":1,"documento":"1010101010","nombre":"Pedro Ramirez","telefono":"3001234567","correo":"pedro@gmail.com","direccion":"Calle 10 # 20-30","estado":true,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"id":2,"documento":"2020202020","nombre":"Laura Torres","telefono":"3019876543","correo":"laura@gmail.com","direccion":"Carrera 15 # 40-20","estado":true,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"},{"id":3,"documento":"3030303030","nombre":"Maria Hernandez","telefono":"3105556677","correo":"maria@gmail.com","direccion":"Calle 80 # 12-15","estado":true,"created_at":"2026-09-17T23:48:31.000000Z","updated_at":"2026-09-17T23:48:31.000000Z"}]}'
+        content: '{"success":"Se listaron correctamente","data":[{"id":1,"documento":"1010101010","nombre":"Pedro Ramirez","telefono":"3001234567","correo":"pedro@gmail.com","direccion":"Calle 10 # 20-30","estado":true,"created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":2,"documento":"2020202020","nombre":"Laura Torres","telefono":"3019876543","correo":"laura@gmail.com","direccion":"Carrera 15 # 40-20","estado":true,"created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":3,"documento":"3030303030","nombre":"Maria Hernandez","telefono":"3105556677","correo":"maria@gmail.com","direccion":"Calle 80 # 12-15","estado":true,"created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -130,7 +130,7 @@ endpoints:
         name: fecha_nacimiento
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-17T23:53:26'
+        example: '2026-09-19T01:51:13'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -153,7 +153,7 @@ endpoints:
       documento: gzmiyvdljnikhway
       telefono: kcmyuwpwlvqwrsit
       email: okeefe.isidro@example.org
-      fecha_nacimiento: '2026-09-17T23:53:26'
+      fecha_nacimiento: '2026-09-19T01:51:13'
       direccion: l
     fileParameters: []
     responses: []
@@ -314,7 +314,7 @@ endpoints:
         name: fecha_nacimiento
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-17T23:53:26'
+        example: '2026-09-19T01:51:13'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -337,7 +337,7 @@ endpoints:
       documento: gzmiyvdljnikhway
       telefono: kcmyuwpwlvqwrsit
       email: okeefe.isidro@example.org
-      fecha_nacimiento: '2026-09-17T23:53:26'
+      fecha_nacimiento: '2026-09-19T01:51:13'
       direccion: l
     fileParameters: []
     responses: []

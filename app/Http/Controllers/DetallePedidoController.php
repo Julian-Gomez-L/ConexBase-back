@@ -54,12 +54,13 @@ class DetallePedidoController extends Controller
         ]);
     }
 
-    public function destroy(int $id)
+    public function destroy($id)
     {
         $this->detallePedidoService->destroy($id);
-
         return response()->json([
-            'success' => 'El detalle de pedido se eliminó correctamente'
+            'success' => true,
+            'message' => 'Detalle de pedido eliminado correctamente.',
+            'data' => null
         ]);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\CategoriasService;
 use App\Http\Requests\Categoria\StoreCategoriaRequest;
 use App\Http\Requests\Categoria\UpdateCategoriaRequest;
-use App\Models\Categoria;
+
 
 /**
  * @group Categorías
@@ -60,15 +60,18 @@ class CategoriaController extends Controller
         ]);
     }
 
+    public function destroy($id)
+    {
+        $this->categoriaService->destroy($id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Categoría eliminada correctamente.',
+            'data' => null
+        ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categoria $categoria)
-    {
-        $categoria->delete();
-
-        return response()->json([
-            'message' => 'Categoría eliminada correctamente'
-        ], 200);
-    }
+    
 }

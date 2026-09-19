@@ -31,6 +31,7 @@ return new class extends Migration
             $table->text("observacion")->nullable();
             $table->dateTime("fecha");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

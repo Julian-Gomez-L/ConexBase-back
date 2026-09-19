@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\RolService;
 use App\Http\Requests\Rol\StoreRolRequest;
 use App\Http\Requests\Rol\UpdateRolRequest;
-use App\Models\Rol;
+
 
 /**
  * @group Roles
@@ -66,12 +66,13 @@ class RolController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rol $rol)
+    public function destroy($id)
     {
-        $rol->delete();
-
+        $this->rolService->destroy($id);
         return response()->json([
-            'message' => 'Rol eliminado correctamente'
-        ], 200);
+            'success' => true,
+            'message' => 'Rol eliminado correctamente.',
+            'data' => null
+        ]);
     }
 }
