@@ -11,7 +11,7 @@ class TrabajosTapiceros extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'trabajos_tapicero';
+    protected $table = 'trabajos_tapiceros';
 
     protected $fillable = [
         'id',
@@ -20,17 +20,17 @@ class TrabajosTapiceros extends Model
         'estado',
         'observaciones',
         'descripcion',
-        'id_produccion',
-        'id_usuario',
+        'produccion_id',
+        'usuario_id',
     ];
 
     public function produccion()
     {
-        return $this->belongsTo(Produccion::class, 'id_produccion');
+        return $this->belongsTo(Produccion::class, 'produccion_id');
     }
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 }

@@ -43,7 +43,13 @@ class CategoriaController extends Controller
      */
     public function show(int $id)
     {
-        //
+   $categoria = $this->categoriaService->show($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Categoría consultada correctamente.',
+            'data' => $categoria
+        ]);
     }
 
     /**

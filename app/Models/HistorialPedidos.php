@@ -19,9 +19,9 @@ class HistorialPedidos extends Model
         'estado_anterior',
         'estado_nuevo',
         'observacion',
-        'id_cliente',
-        'id_usuario',
-        'id_pedido',
+        'cliente_id',
+        'usuario_id',
+        'pedido_id',
     ];
 
     public function cliente()

@@ -29,6 +29,9 @@ use App\Repositories\PagosRepository;
 use App\Interfaces\DetallePedidoInterface;
 use App\Repositories\DetallePedidoRepository;
 
+
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -91,13 +94,15 @@ class AppServiceProvider extends ServiceProvider
             DetallePedidoInterface::class,
             DetallePedidoRepository::class
         );
+        
     }
-
+    
+    public function boot(): void
+    {
+     
+    }
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        //
-    }
+    
 }

@@ -43,9 +43,12 @@ class UsuarioController extends Controller
      */
     public function show(int $id)
     {
+        $usuario = $this->usuarioService->show($id);
+
         return response()->json([
-            'success' => 'Detalle del usuario obtenido correctamente',
-            'data'    => $this->usuarioService->show($id)
+            'success' => true,
+            'message' => 'Usuario consultado correctamente.',
+            'data' => $usuario
         ]);
     }
 

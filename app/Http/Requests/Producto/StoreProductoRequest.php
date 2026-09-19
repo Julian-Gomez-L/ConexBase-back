@@ -18,7 +18,7 @@ class StoreProductoRequest extends FormRequest
             'descripcion' => ['nullable', 'string'],
             'precio' => ['required', 'numeric', 'min:0'],
             'stock' => ['required', 'integer', 'min:0'],
-            'id_categoria' => ['required', 'integer', 'exists:categorias,id'],
+            'categoria_id' => ['required', 'integer', 'exists:categorias,id'],
         ];
     }
 
@@ -34,9 +34,9 @@ class StoreProductoRequest extends FormRequest
             'stock.required' => 'El stock es obligatorio.',
             'stock.integer' => 'El stock debe ser un número entero.',
             'stock.min' => 'El stock no puede ser negativo.',
-            'id_categoria.required' => 'La categoría es obligatoria.',
-            'id_categoria.integer' => 'El ID de la categoría debe ser un número entero.',
-            'id_categoria.exists' => 'La categoría no existe en la base de datos.',
+            'categoria_id.required' => 'La categoría es obligatoria.',
+            'categoria_id.integer' => 'El ID de la categoría debe ser un número entero.',
+            'categoria_id.exists' => 'La categoría no existe en la base de datos.',
         ];
     }
 }

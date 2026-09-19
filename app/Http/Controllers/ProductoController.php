@@ -43,7 +43,13 @@ class ProductoController extends Controller
      */
     public function show(int $id)
     {
-        //
+        $producto = $this->productoService->show($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Producto consultado correctamente.',
+            'data' => $producto
+        ]);
     }
 
     /**

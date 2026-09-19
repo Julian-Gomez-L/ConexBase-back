@@ -43,7 +43,13 @@ class HistorialPedidosController extends Controller
      */
     public function show(int $id)
     {
-        //
+        $historialPedido = $this->historialPedidosService->show($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Historial de pedidos consultado correctamente.',
+            'data' => $historialPedido
+        ]);
     }
 
     /**

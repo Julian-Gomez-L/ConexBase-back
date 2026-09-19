@@ -18,7 +18,7 @@ class UpdateProductoRequest extends FormRequest
             'descripcion' => ['nullable', 'string'],
             'precio' => ['sometimes', 'numeric', 'min:0'],
             'stock' => ['sometimes', 'integer', 'min:0'],
-            'id_categoria' => ['sometimes', 'integer', 'exists:categorias,id'],
+            'categoria_id' => ['sometimes', 'integer', 'exists:categorias,id'],
         ];
     }
 
@@ -31,8 +31,8 @@ class UpdateProductoRequest extends FormRequest
             'precio.min' => 'El precio no puede ser negativo.',
             'stock.integer' => 'El stock debe ser un número entero.',
             'stock.min' => 'El stock no puede ser negativo.',
-            'id_categoria.integer' => 'El ID de la categoría debe ser un número entero.',
-            'id_categoria.exists' => 'La categoría no existe en la base de datos.',
+            'categoria_id.integer' => 'El ID de la categoría debe ser un número entero.',
+            'categoria_id.exists' => 'La categoría no existe en la base de datos.',
         ];
     }
 }

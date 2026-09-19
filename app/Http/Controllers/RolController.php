@@ -43,9 +43,12 @@ class RolController extends Controller
      */
     public function show(int $id)
     {
+        $rol = $this->rolService->show($id);
+
         return response()->json([
-            'success' => 'Detalle del rol obtenido correctamente',
-            'data'    => $this->rolService->show($id)
+            'success' => true,
+            'message' => 'Rol consultado correctamente.',
+            'data' => $rol
         ]);
     }
 

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests\Pedidos;
+namespace App\Http\Requests\Pedido;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Ramsey\Uuid\Type\Integer;
 
 class StorePedidoRequest extends FormRequest
 {
@@ -14,8 +15,8 @@ class StorePedidoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cliente_id' => ['required', 'exists:clientes,id'],
-            'usuario_id' => ['required', 'exists:usuarios,id'],
+            'cliente_id' => ['required','integer','exists:clientes,id'],
+            'usuario_id' => ['required', 'integer', 'exists:usuarios,id'],
             'estado' => ['required', 'string'],
             'total' => ['required', 'numeric', 'min:0'],
         ];

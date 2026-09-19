@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\PedidosService;
-use App\Http\Requests\Pedidos\StorePedidoRequest;
-use App\Http\Requests\Pedidos\UpdatePedidoRequest;
+use App\Http\Requests\Pedido\StorePedidoRequest;
+use App\Http\Requests\Pedido\UpdatePedidoRequest;
 
 /**
  * @group Pedidos
@@ -36,9 +36,12 @@ class PedidoController extends Controller
 
     public function show(int $id)
     {
+        $pedido = $this->pedidosService->show($id);
+
         return response()->json([
-            'success' => 'El pedido se encontró correctamente',
-            'data' => $this->pedidosService->show($id)
+            'success' => true,
+            'message' => 'Pedido consultado correctamente.',
+            'data' => $pedido
         ]);
     }
 

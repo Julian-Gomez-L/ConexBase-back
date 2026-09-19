@@ -55,7 +55,7 @@ class PagosService
     public function update(array $data, $id)
     {
         if (!is_numeric($id) || (int) $id <= 0) {
-            throw new InvalidIdException(
+            throw new InvalidIdException(//se est creando el objeto de esa clase
                 'INVALID_ID',
                 'El identificador del pago no es válido.'
             );

@@ -18,7 +18,7 @@ class StoreClienteRequest extends FormRequest
             'apellido' => ['required', 'string', 'max:255'],
             'documento' => ['required', 'string', 'max:20', 'unique:clientes,documento'],
             'telefono' => ['nullable', 'string', 'max:20'],
-            'email' => ['nullable', 'email', 'max:255', 'unique:clientes,email'],
+            'correo' => ['nullable', 'email', 'max:255', 'unique:clientes,correo'],
             'fecha_nacimiento' => ['nullable', 'date'],
             'direccion' => ['nullable', 'string', 'max:255'],
         ];
@@ -34,8 +34,8 @@ class StoreClienteRequest extends FormRequest
             'documento.required' => 'El documento es obligatorio.',
             'documento.unique' => 'Ya existe un cliente registrado con ese documento.',
             'telefono.string' => 'El teléfono debe ser una cadena de texto.',
-            'email.email' => 'El correo electrónico debe tener un formato válido.',
-            'email.unique' => 'Ya existe un cliente registrado con ese correo.',
+            'correo.email' => 'El correo electrónico debe tener un formato válido.',
+            'correo.unique' => 'Ya existe un cliente registrado con ese correo.',
             'fecha_nacimiento.date' => 'La fecha de nacimiento debe ser una fecha válida.',
             'direccion.string' => 'La dirección debe ser una cadena de texto.',
         ];

@@ -8,7 +8,7 @@ class InvalidIdException extends Exception
 {
     public string $errorCode; //atributo
 
-    public function __construct(
+    public function __construct(// constructor son parametros que la clase debe cumplir obligatoriamente
         string $errorCode,
         string $message
     ) {

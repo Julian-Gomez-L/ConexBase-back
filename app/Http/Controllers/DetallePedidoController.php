@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\DetallePedidoService;
-use App\Http\Requests\DetallePedidos\StoreDetallePedidoRequest;
-use App\Http\Requests\DetallePedidos\UpdateDetallePedidoRequest;
+use App\Http\Requests\DetallePedido\StoreDetallePedidoRequest;
+use App\Http\Requests\DetallePedido\UpdateDetallePedidoRequest;
 
 /**
  * @group Detalle de Pedidos
@@ -37,9 +37,12 @@ class DetallePedidoController extends Controller
 
     public function show(int $id)
     {
+        $detallePedido = $this->detallePedidoService->show($id);
+
         return response()->json([
-            'success' => 'El detalle de pedido se encontró correctamente',
-            'data' => $this->detallePedidoService->show($id)
+            'success' => true,
+            'message' => 'Detalle de pedido consultado correctamente.',
+            'data' => $detallePedido
         ]);
     }
 

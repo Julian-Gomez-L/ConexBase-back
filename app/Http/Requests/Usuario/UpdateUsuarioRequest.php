@@ -15,7 +15,7 @@ class UpdateUsuarioRequest extends FormRequest
     {
         return [
             'nombre'   => ['required', 'string', 'max:100'],
-            'email'    => ['required', 'email'],
+            'correo'    => ['required', 'email'],
             'password' => ['nullable', 'string', 'min:8'], // Es nullable para que no sea obligatorio cambiarla
             'rol_id'   => ['required', 'integer', 'exists:roles,id'],
         ];
@@ -26,8 +26,8 @@ class UpdateUsuarioRequest extends FormRequest
         return [
             'nombre.required'   => 'El nombre del usuario es obligatorio.',
             'nombre.string'     => 'El nombre debe ser texto.',
-            'email.required'    => 'El correo electrónico es obligatorio.',
-            'email.email'       => 'Debe ingresar un correo válido.',
+            'correo.required'    => 'El correo electrónico es obligatorio.',
+            'correo.email'       => 'Debe ingresar un correo válido.',
             'password.min'      => 'La contraseña debe tener al menos 8 caracteres.',
             'rol_id.required'   => 'Debe asignar un rol al usuario.',
             'rol_id.exists'     => 'El rol seleccionado no es válido.',

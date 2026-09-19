@@ -15,7 +15,9 @@ class StoreHistorialPedidosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id_pedido' => ['required', 'integer', 'exists:pedidos,id'],
+            'pedido_id' => ['required', 'integer', 'exists:pedidos,id'],
+            'cliente_id' => ['required', 'integer', 'exists:clientes,id'],
+            'usuario_id' => ['required', 'integer', 'exists:usuarios,id'],
             'estado' => ['required', 'string'],
             'observaciones' => ['nullable', 'string'],
             'fecha' => ['required', 'date'],
@@ -25,9 +27,9 @@ class StoreHistorialPedidosRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'id_pedido.required' => 'El ID del pedido es obligatorio.',
-            'id_pedido.integer' => 'El ID del pedido debe ser un número entero.',
-            'id_pedido.exists' => 'El ID del pedido no existe en la base de datos.',
+            'pedido_id.required' => 'El ID del pedido es obligatorio.',
+            'pedido_id.integer' => 'El ID del pedido debe ser un número entero.',
+            'pedido_id.exists' => 'El ID del pedido no existe en la base de datos.',
             'estado.required' => 'El estado es obligatorio.',
             'estado.string' => 'El estado debe ser una cadena de texto.',
             'observaciones.string' => 'Las observaciones deben ser una cadena de texto.',

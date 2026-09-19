@@ -36,7 +36,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"Los detalles de pedido se listaron correctamente","data":[{"id":1,"pedido_id":1,"producto_id":1,"cantidad":1,"precio_unitario":"1500000.00","subtotal":"1500000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":2,"pedido_id":1,"producto_id":2,"cantidad":2,"precio_unitario":"250000.00","subtotal":"500000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":3,"pedido_id":2,"producto_id":2,"cantidad":2,"precio_unitario":"250000.00","subtotal":"500000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":4,"pedido_id":2,"producto_id":3,"cantidad":1,"precio_unitario":"800000.00","subtotal":"800000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":5,"pedido_id":3,"producto_id":4,"cantidad":1,"precio_unitario":"1100000.00","subtotal":"1100000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":6,"pedido_id":3,"producto_id":5,"cantidad":1,"precio_unitario":"450000.00","subtotal":"450000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null}]}'
+        content: '{"success":"Los detalles de pedido se listaron correctamente","data":[{"id":2,"pedido_id":1,"producto_id":2,"cantidad":2,"precio_unitario":"250000.00","subtotal":"500000.00","created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null},{"id":3,"pedido_id":2,"producto_id":2,"cantidad":2,"precio_unitario":"250000.00","subtotal":"500000.00","created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null},{"id":4,"pedido_id":2,"producto_id":3,"cantidad":1,"precio_unitario":"800000.00","subtotal":"800000.00","created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null},{"id":5,"pedido_id":3,"producto_id":4,"cantidad":1,"precio_unitario":"1100000.00","subtotal":"1100000.00","created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null},{"id":6,"pedido_id":3,"producto_id":5,"cantidad":1,"precio_unitario":"450000.00","subtotal":"450000.00","created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -71,8 +71,68 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      pedido_id:
+        custom: []
+        name: pedido_id
+        description: 'Must match an existing stored value.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      producto_id:
+        custom: []
+        name: producto_id
+        description: 'Must match an existing stored value.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      cantidad:
+        custom: []
+        name: cantidad
+        description: 'Must be at least 1.'
+        required: true
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      precio_unitario:
+        custom: []
+        name: precio_unitario
+        description: 'Must be at least 0.'
+        required: true
+        example: 84
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      subtotal:
+        custom: []
+        name: subtotal
+        description: 'Must be at least 0.'
+        required: true
+        example: 12
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      pedido_id: architecto
+      producto_id: architecto
+      cantidad: 22
+      precio_unitario: 84
+      subtotal: 12
     fileParameters: []
     responses: []
     responseFields: []
@@ -106,14 +166,14 @@ endpoints:
         name: id
         description: 'The ID of the detalle pedido.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -123,7 +183,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"El detalle de pedido se encontr\u00f3 correctamente","data":{"id":1,"pedido_id":1,"producto_id":1,"cantidad":1,"precio_unitario":"1500000.00","subtotal":"1500000.00","created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null}}'
+        content: '{"success":true,"message":"Detalle de pedido consultado correctamente.","data":{"id":2,"pedido_id":1,"producto_id":2,"cantidad":2,"precio_unitario":"250000.00","subtotal":"500000.00","created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -161,18 +221,76 @@ endpoints:
         name: id
         description: 'The ID of the detalle pedido.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      pedido_id:
+        custom: []
+        name: pedido_id
+        description: 'Must match an existing stored value.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      producto_id:
+        custom: []
+        name: producto_id
+        description: 'Must match an existing stored value.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      cantidad:
+        custom: []
+        name: cantidad
+        description: 'Must be at least 1.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      precio_unitario:
+        custom: []
+        name: precio_unitario
+        description: 'Must be at least 0.'
+        required: false
+        example: 39
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      subtotal:
+        custom: []
+        name: subtotal
+        description: 'Must be at least 0.'
+        required: false
+        example: 84
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      cantidad: 16
+      precio_unitario: 39
+      subtotal: 84
     fileParameters: []
     responses: []
     responseFields: []
@@ -206,14 +324,14 @@ endpoints:
         name: id
         description: 'The ID of the detalle pedido.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

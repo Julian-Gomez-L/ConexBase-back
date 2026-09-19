@@ -43,7 +43,13 @@ class TrabajosTapicerosController extends Controller
      */
     public function show(int $id)
     {
-        //
+        $trabajo = $this->trabajos_tapicerosService->show($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Trabajo de tapicero consultado correctamente.',
+            'data' => $trabajo
+        ]);
     }
 
     /**

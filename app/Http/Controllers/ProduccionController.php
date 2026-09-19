@@ -43,7 +43,13 @@ class ProduccionController extends Controller
      */
     public function show(int $id)
     {
-        //
+        $produccion = $this->produccionService->show($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Producción consultada correctamente.',
+            'data' => $produccion
+        ]);
     }
 
     /**

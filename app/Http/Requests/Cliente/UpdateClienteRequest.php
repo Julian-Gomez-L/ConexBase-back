@@ -18,7 +18,7 @@ class UpdateClienteRequest extends FormRequest
             'apellido' => ['sometimes', 'string', 'max:255'],
             'documento' => ['sometimes', 'string', 'max:20', 'unique:clientes,documento,' . $this->route('cliente')],
             'telefono' => ['nullable', 'string', 'max:20'],
-            'email' => ['nullable', 'email', 'max:255', 'unique:clientes,email,' . $this->route('cliente')],
+            'correo' => ['nullable', 'email', 'max:255', 'unique:clientes,correo,' . $this->route('cliente')],
             'fecha_nacimiento' => ['nullable', 'date'],
             'direccion' => ['nullable', 'string', 'max:255'],
         ];
@@ -31,8 +31,8 @@ class UpdateClienteRequest extends FormRequest
             'apellido.string' => 'El apellido debe ser una cadena de texto.',
             'documento.unique' => 'Ya existe un cliente registrado con ese documento.',
             'telefono.string' => 'El teléfono debe ser una cadena de texto.',
-            'email.email' => 'El correo electrónico debe tener un formato válido.',
-            'email.unique' => 'Ya existe un cliente registrado con ese correo.',
+            'correo.email' => 'El correo electrónico debe tener un formato válido.',
+            'correo.unique' => 'Ya existe un cliente registrado con ese correo.',
             'fecha_nacimiento.date' => 'La fecha de nacimiento debe ser una fecha válida.',
             'direccion.string' => 'La dirección debe ser una cadena de texto.',
         ];

@@ -24,7 +24,7 @@ class Pago extends Model
 
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class, 'pedido_id');
+        return $this->belongsTo(Pedido::class, 'pedido_id');
     }
 
     public function usuario()

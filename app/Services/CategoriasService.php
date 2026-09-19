@@ -24,9 +24,6 @@ class CategoriasService
 
     public function show($id)
     {
-        if ((string) $id === '1234') {
-            return $this->categoriasRepository->getAllWithTrashed();
-        }
 
         if (
             !is_numeric($id) ||

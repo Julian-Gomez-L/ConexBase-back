@@ -34,7 +34,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"success":"Se listaron correctamente","data":[{"id":1,"documento":"1010101010","nombre":"Pedro Ramirez","telefono":"3001234567","correo":"pedro@gmail.com","direccion":"Calle 10 # 20-30","estado":true,"created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":2,"documento":"2020202020","nombre":"Laura Torres","telefono":"3019876543","correo":"laura@gmail.com","direccion":"Carrera 15 # 40-20","estado":true,"created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null},{"id":3,"documento":"3030303030","nombre":"Maria Hernandez","telefono":"3105556677","correo":"maria@gmail.com","direccion":"Calle 80 # 12-15","estado":true,"created_at":"2026-09-19T01:51:07.000000Z","updated_at":"2026-09-19T01:51:07.000000Z","deleted_at":null}]}'
+        content: '{"success":"Se listaron correctamente","data":[{"id":2,"documento":"2020202020","nombre":"Laura Torres","telefono":"3019876543","correo":"laura@gmail.com","direccion":"Carrera 15 # 40-20","estado":true,"created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null},{"id":3,"documento":"3030303030","nombre":"Maria Hernandez","telefono":"3105556677","correo":"maria@gmail.com","direccion":"Calle 80 # 12-15","estado":true,"created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null},{"id":4,"documento":"gzmiyvdljnikhway","nombre":"b","telefono":"kcmyuwpwlvqwrsit","correo":"okeefddeisi@droexampleorg","direccion":"l","estado":true,"created_at":"2026-09-19T15:34:50.000000Z","updated_at":"2026-09-19T15:34:50.000000Z","deleted_at":null}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -114,12 +114,12 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      email:
+      correo:
         custom: []
-        name: email
+        name: correo
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: false
-        example: okeefe.isidro@example.org
+        example: c
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -130,7 +130,7 @@ endpoints:
         name: fecha_nacimiento
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-19T01:51:13'
+        example: '2026-09-19T15:48:35'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -141,7 +141,7 @@ endpoints:
         name: direccion
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: l
+        example: p
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,9 +152,9 @@ endpoints:
       apellido: 'n'
       documento: gzmiyvdljnikhway
       telefono: kcmyuwpwlvqwrsit
-      email: okeefe.isidro@example.org
-      fecha_nacimiento: '2026-09-19T01:51:13'
-      direccion: l
+      correo: c
+      fecha_nacimiento: '2026-09-19T15:48:35'
+      direccion: p
     fileParameters: []
     responses: []
     responseFields: []
@@ -188,14 +188,14 @@ endpoints:
         name: id
         description: 'The ID of the cliente.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -205,10 +205,10 @@ endpoints:
       -
         custom: []
         status: 200
-        content: ''
+        content: '{"success":true,"message":"Cliente consultado correctamente.","data":{"id":2,"documento":"2020202020","nombre":"Laura Torres","telefono":"3019876543","correo":"laura@gmail.com","direccion":"Carrera 15 # 40-20","estado":true,"created_at":"2026-09-19T15:18:31.000000Z","updated_at":"2026-09-19T15:18:31.000000Z","deleted_at":null}}'
         headers:
-          content-type: 'text/html; charset=utf-8'
           cache-control: 'no-cache, private'
+          content-type: application/json
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -243,14 +243,14 @@ endpoints:
         name: id
         description: 'The ID of the cliente.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -298,12 +298,12 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      email:
+      correo:
         custom: []
-        name: email
+        name: correo
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: false
-        example: okeefe.isidro@example.org
+        example: c
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -314,7 +314,7 @@ endpoints:
         name: fecha_nacimiento
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-19T01:51:13'
+        example: '2026-09-19T15:48:35'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -325,7 +325,7 @@ endpoints:
         name: direccion
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: l
+        example: p
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -336,9 +336,9 @@ endpoints:
       apellido: 'n'
       documento: gzmiyvdljnikhway
       telefono: kcmyuwpwlvqwrsit
-      email: okeefe.isidro@example.org
-      fecha_nacimiento: '2026-09-19T01:51:13'
-      direccion: l
+      correo: c
+      fecha_nacimiento: '2026-09-19T15:48:35'
+      direccion: p
     fileParameters: []
     responses: []
     responseFields: []
@@ -372,14 +372,14 @@ endpoints:
         name: id
         description: 'The ID of the cliente.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

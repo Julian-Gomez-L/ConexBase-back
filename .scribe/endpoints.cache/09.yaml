@@ -91,7 +91,7 @@ endpoints:
         name: fecha_inicio
         description: 'Must be a valid date.'
         required: true
-        example: '2026-09-19T01:51:13'
+        example: '2026-09-19T15:48:36'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -102,7 +102,7 @@ endpoints:
         name: fecha_fin
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-19T01:51:13'
+        example: '2026-09-19T15:48:36'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -132,8 +132,8 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       descripcion: architecto
-      fecha_inicio: '2026-09-19T01:51:13'
-      fecha_fin: '2026-09-19T01:51:13'
+      fecha_inicio: '2026-09-19T15:48:36'
+      fecha_fin: '2026-09-19T15:48:36'
       estado: architecto
       observaciones: architecto
     fileParameters: []
@@ -243,7 +243,7 @@ endpoints:
         name: fecha_inicio
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-19T01:51:13'
+        example: '2026-09-19T15:48:36'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -254,7 +254,7 @@ endpoints:
         name: fecha_fin
         description: 'Must be a valid date.'
         required: false
-        example: '2026-09-19T01:51:13'
+        example: '2026-09-19T15:48:36'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -283,8 +283,8 @@ endpoints:
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      fecha_inicio: '2026-09-19T01:51:13'
-      fecha_fin: '2026-09-19T01:51:13'
+      fecha_inicio: '2026-09-19T15:48:36'
+      fecha_fin: '2026-09-19T15:48:36'
       estado: architecto
       observaciones: architecto
     fileParameters: []
@@ -320,14 +320,14 @@ endpoints:
         name: id
         description: 'The ID of the trabajos tapicero.'
         required: true
-        example: 16
-        type: integer
+        example: architecto
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 16
+      id: architecto
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

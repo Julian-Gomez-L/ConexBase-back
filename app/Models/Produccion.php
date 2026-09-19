@@ -11,7 +11,7 @@ class Produccion extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'produccion';
+    protected $table = 'producciones';
 
     protected $fillable = [
         'id',
@@ -19,29 +19,23 @@ class Produccion extends Model
         'fecha_fin',
         'estado',
         'observaciones',
-        'id_pedido',
-        'id_producto',
-        'id_usuario',
-        'id_trabajos_tapiceros',
+        'pedido_id',
+        'producto_id',
+        'usuario_id',
     ];
 
         public function pedido()
     {
-        return $this->belongsTo(Pedido::class, 'id_pedido');
+        return $this->belongsTo(Pedido::class, 'pedido_id');
     }
 
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'id_producto');
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
-    }
-
-        public function trabajos_Tapicerio()
-    {
-        return $this->hasMany(trabajosTapiceros::class, 'id_trabajos_tapiceros');
+        return $this->belongsTo(Usuario::class, 'usuario_id');
     }
 }

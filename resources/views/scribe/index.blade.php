@@ -84,7 +84,7 @@
                                 <a href="#categorias-PUTapi-categorias--id-">Update the specified resource in storage.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="categorias-DELETEapi-categorias--id-">
-                                <a href="#categorias-DELETEapi-categorias--id-">Remove the specified resource from storage.</a>
+                                <a href="#categorias-DELETEapi-categorias--id-">DELETE api/categorias/{id}</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -393,21 +393,12 @@ access-control-allow-origin: *
     &quot;success&quot;: &quot;Se listaron correctamente&quot;,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;nombre&quot;: &quot;Sala&quot;,
-            &quot;descripcion&quot;: &quot;Muebles destinados para salas y espacios de descanso&quot;,
-            &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;deleted_at&quot;: null
-        },
-        {
             &quot;id&quot;: 2,
             &quot;nombre&quot;: &quot;Sillas&quot;,
             &quot;descripcion&quot;: &quot;Sillas para diferentes espacios del hogar&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -415,8 +406,17 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Mesas&quot;,
             &quot;descripcion&quot;: &quot;Mesas para comedor y otros espacios&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;nombre&quot;: &quot;b&quot;,
+            &quot;descripcion&quot;: &quot;architecto&quot;,
+            &quot;estado&quot;: true,
+            &quot;created_at&quot;: &quot;2026-09-19T15:22:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:22:07.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -655,14 +655,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/categorias/1" \
+    --get "http://localhost/api/categorias/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categorias/1"
+    "http://localhost/api/categorias/2"
 );
 
 const headers = {
@@ -686,12 +686,24 @@ fetch(url, {
             <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
-            <pre><code class="language-http">content-type: text/html; charset=utf-8
-cache-control: no-cache, private
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;"></code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Categor&iacute;a consultada correctamente.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 2,
+        &quot;nombre&quot;: &quot;Sillas&quot;,
+        &quot;descripcion&quot;: &quot;Sillas para diferentes espacios del hogar&quot;,
+        &quot;estado&quot;: true,
+        &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;deleted_at&quot;: null
+    }
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-categorias--id-" hidden>
@@ -773,10 +785,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-categorias--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the categoria. Example: <code>1</code></p>
+<p>The ID of the categoria. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -793,7 +805,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/categorias/1" \
+    "http://localhost/api/categorias/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -805,7 +817,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categorias/1"
+    "http://localhost/api/categorias/2"
 );
 
 const headers = {
@@ -911,10 +923,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-categorias--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the categoria. Example: <code>1</code></p>
+<p>The ID of the categoria. Example: <code>2</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -943,7 +955,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="categorias-DELETEapi-categorias--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="categorias-DELETEapi-categorias--id-">DELETE api/categorias/{id}</h2>
 
 <p>
 </p>
@@ -956,14 +968,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/categorias/1" \
+    "http://localhost/api/categorias/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categorias/1"
+    "http://localhost/api/categorias/2"
 );
 
 const headers = {
@@ -1060,10 +1072,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-categorias--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the categoria. Example: <code>1</code></p>
+<p>The ID of the categoria. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -1124,18 +1136,6 @@ access-control-allow-origin: *
     &quot;success&quot;: &quot;Se listaron correctamente&quot;,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;documento&quot;: &quot;1010101010&quot;,
-            &quot;nombre&quot;: &quot;Pedro Ramirez&quot;,
-            &quot;telefono&quot;: &quot;3001234567&quot;,
-            &quot;correo&quot;: &quot;pedro@gmail.com&quot;,
-            &quot;direccion&quot;: &quot;Calle 10 # 20-30&quot;,
-            &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;deleted_at&quot;: null
-        },
-        {
             &quot;id&quot;: 2,
             &quot;documento&quot;: &quot;2020202020&quot;,
             &quot;nombre&quot;: &quot;Laura Torres&quot;,
@@ -1143,8 +1143,8 @@ access-control-allow-origin: *
             &quot;correo&quot;: &quot;laura@gmail.com&quot;,
             &quot;direccion&quot;: &quot;Carrera 15 # 40-20&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -1155,8 +1155,20 @@ access-control-allow-origin: *
             &quot;correo&quot;: &quot;maria@gmail.com&quot;,
             &quot;direccion&quot;: &quot;Calle 80 # 12-15&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;deleted_at&quot;: null
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;documento&quot;: &quot;gzmiyvdljnikhway&quot;,
+            &quot;nombre&quot;: &quot;b&quot;,
+            &quot;telefono&quot;: &quot;kcmyuwpwlvqwrsit&quot;,
+            &quot;correo&quot;: &quot;okeefddeisi@droexampleorg&quot;,
+            &quot;direccion&quot;: &quot;l&quot;,
+            &quot;estado&quot;: true,
+            &quot;created_at&quot;: &quot;2026-09-19T15:34:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:34:50.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -1257,9 +1269,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"apellido\": \"n\",
     \"documento\": \"gzmiyvdljnikhway\",
     \"telefono\": \"kcmyuwpwlvqwrsit\",
-    \"email\": \"okeefe.isidro@example.org\",
-    \"fecha_nacimiento\": \"2026-09-19T01:51:13\",
-    \"direccion\": \"l\"
+    \"correo\": \"c\",
+    \"fecha_nacimiento\": \"2026-09-19T15:48:35\",
+    \"direccion\": \"p\"
 }"
 </code></pre></div>
 
@@ -1279,9 +1291,9 @@ let body = {
     "apellido": "n",
     "documento": "gzmiyvdljnikhway",
     "telefono": "kcmyuwpwlvqwrsit",
-    "email": "okeefe.isidro@example.org",
-    "fecha_nacimiento": "2026-09-19T01:51:13",
-    "direccion": "l"
+    "correo": "c",
+    "fecha_nacimiento": "2026-09-19T15:48:35",
+    "direccion": "p"
 };
 
 fetch(url, {
@@ -1415,16 +1427,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 20 characters. Example: <code>kcmyuwpwlvqwrsit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-clientes"
-               value="okeefe.isidro@example.org"
+                              name="correo"                data-endpoint="POSTapi-clientes"
+               value="c"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>okeefe.isidro@example.org</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>c</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_nacimiento</code></b>&nbsp;&nbsp;
@@ -1433,10 +1445,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_nacimiento"                data-endpoint="POSTapi-clientes"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:35"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:35</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>direccion</code></b>&nbsp;&nbsp;
@@ -1445,10 +1457,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="direccion"                data-endpoint="POSTapi-clientes"
-               value="l"
+               value="p"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>l</code></p>
+<p>Must not be greater than 255 characters. Example: <code>p</code></p>
         </div>
         </form>
 
@@ -1465,14 +1477,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/clientes/1" \
+    --get "http://localhost/api/clientes/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/clientes/1"
+    "http://localhost/api/clientes/2"
 );
 
 const headers = {
@@ -1496,12 +1508,27 @@ fetch(url, {
             <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
-            <pre><code class="language-http">content-type: text/html; charset=utf-8
-cache-control: no-cache, private
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;"></code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Cliente consultado correctamente.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 2,
+        &quot;documento&quot;: &quot;2020202020&quot;,
+        &quot;nombre&quot;: &quot;Laura Torres&quot;,
+        &quot;telefono&quot;: &quot;3019876543&quot;,
+        &quot;correo&quot;: &quot;laura@gmail.com&quot;,
+        &quot;direccion&quot;: &quot;Carrera 15 # 40-20&quot;,
+        &quot;estado&quot;: true,
+        &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;deleted_at&quot;: null
+    }
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-clientes--id-" hidden>
@@ -1583,10 +1610,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-clientes--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the cliente. Example: <code>1</code></p>
+<p>The ID of the cliente. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -1603,7 +1630,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/clientes/1" \
+    "http://localhost/api/clientes/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1611,16 +1638,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"apellido\": \"n\",
     \"documento\": \"gzmiyvdljnikhway\",
     \"telefono\": \"kcmyuwpwlvqwrsit\",
-    \"email\": \"okeefe.isidro@example.org\",
-    \"fecha_nacimiento\": \"2026-09-19T01:51:13\",
-    \"direccion\": \"l\"
+    \"correo\": \"c\",
+    \"fecha_nacimiento\": \"2026-09-19T15:48:35\",
+    \"direccion\": \"p\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/clientes/1"
+    "http://localhost/api/clientes/2"
 );
 
 const headers = {
@@ -1633,9 +1660,9 @@ let body = {
     "apellido": "n",
     "documento": "gzmiyvdljnikhway",
     "telefono": "kcmyuwpwlvqwrsit",
-    "email": "okeefe.isidro@example.org",
-    "fecha_nacimiento": "2026-09-19T01:51:13",
-    "direccion": "l"
+    "correo": "c",
+    "fecha_nacimiento": "2026-09-19T15:48:35",
+    "direccion": "p"
 };
 
 fetch(url, {
@@ -1731,10 +1758,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-clientes--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the cliente. Example: <code>1</code></p>
+<p>The ID of the cliente. Example: <code>2</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1786,16 +1813,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must not be greater than 20 characters. Example: <code>kcmyuwpwlvqwrsit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>correo</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="email"                data-endpoint="PUTapi-clientes--id-"
-               value="okeefe.isidro@example.org"
+                              name="correo"                data-endpoint="PUTapi-clientes--id-"
+               value="c"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>okeefe.isidro@example.org</code></p>
+<p>Must be a valid email address. Must not be greater than 255 characters. Example: <code>c</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_nacimiento</code></b>&nbsp;&nbsp;
@@ -1804,10 +1831,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_nacimiento"                data-endpoint="PUTapi-clientes--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:35"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:35</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>direccion</code></b>&nbsp;&nbsp;
@@ -1816,10 +1843,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="direccion"                data-endpoint="PUTapi-clientes--id-"
-               value="l"
+               value="p"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>l</code></p>
+<p>Must not be greater than 255 characters. Example: <code>p</code></p>
         </div>
         </form>
 
@@ -1836,14 +1863,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/clientes/1" \
+    "http://localhost/api/clientes/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/clientes/1"
+    "http://localhost/api/clientes/2"
 );
 
 const headers = {
@@ -1940,10 +1967,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-clientes--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the cliente. Example: <code>1</code></p>
+<p>The ID of the cliente. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -2004,25 +2031,14 @@ access-control-allow-origin: *
     &quot;success&quot;: &quot;Los detalles de pedido se listaron correctamente&quot;,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 1,
-            &quot;pedido_id&quot;: 1,
-            &quot;producto_id&quot;: 1,
-            &quot;cantidad&quot;: 1,
-            &quot;precio_unitario&quot;: &quot;1500000.00&quot;,
-            &quot;subtotal&quot;: &quot;1500000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;deleted_at&quot;: null
-        },
-        {
             &quot;id&quot;: 2,
             &quot;pedido_id&quot;: 1,
             &quot;producto_id&quot;: 2,
             &quot;cantidad&quot;: 2,
             &quot;precio_unitario&quot;: &quot;250000.00&quot;,
             &quot;subtotal&quot;: &quot;500000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2032,8 +2048,8 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 2,
             &quot;precio_unitario&quot;: &quot;250000.00&quot;,
             &quot;subtotal&quot;: &quot;500000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2043,8 +2059,8 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;800000.00&quot;,
             &quot;subtotal&quot;: &quot;800000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2054,8 +2070,8 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;1100000.00&quot;,
             &quot;subtotal&quot;: &quot;1100000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2065,8 +2081,8 @@ access-control-allow-origin: *
             &quot;cantidad&quot;: 1,
             &quot;precio_unitario&quot;: &quot;450000.00&quot;,
             &quot;subtotal&quot;: &quot;450000.00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -2161,7 +2177,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/detalle-pedidos" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"pedido_id\": \"architecto\",
+    \"producto_id\": \"architecto\",
+    \"cantidad\": 22,
+    \"precio_unitario\": 84,
+    \"subtotal\": 12
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -2174,10 +2198,18 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "pedido_id": "architecto",
+    "producto_id": "architecto",
+    "cantidad": 22,
+    "precio_unitario": 84,
+    "subtotal": 12
+};
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -2255,7 +2287,68 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>pedido_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="pedido_id"                data-endpoint="POSTapi-detalle-pedidos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Must match an existing stored value. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>producto_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="producto_id"                data-endpoint="POSTapi-detalle-pedidos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Must match an existing stored value. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cantidad</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="cantidad"                data-endpoint="POSTapi-detalle-pedidos"
+               value="22"
+               data-component="body">
+    <br>
+<p>Must be at least 1. Example: <code>22</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>precio_unitario</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="precio_unitario"                data-endpoint="POSTapi-detalle-pedidos"
+               value="84"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>84</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>subtotal</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="subtotal"                data-endpoint="POSTapi-detalle-pedidos"
+               value="12"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>12</code></p>
+        </div>
+        </form>
 
                     <h2 id="detalle-de-pedidos-GETapi-detalle-pedidos--id-">GET api/detalle-pedidos/{id}</h2>
 
@@ -2270,14 +2363,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/detalle-pedidos/1" \
+    --get "http://localhost/api/detalle-pedidos/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/detalle-pedidos/1"
+    "http://localhost/api/detalle-pedidos/2"
 );
 
 const headers = {
@@ -2307,16 +2400,17 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;success&quot;: &quot;El detalle de pedido se encontr&oacute; correctamente&quot;,
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Detalle de pedido consultado correctamente.&quot;,
     &quot;data&quot;: {
-        &quot;id&quot;: 1,
+        &quot;id&quot;: 2,
         &quot;pedido_id&quot;: 1,
-        &quot;producto_id&quot;: 1,
-        &quot;cantidad&quot;: 1,
-        &quot;precio_unitario&quot;: &quot;1500000.00&quot;,
-        &quot;subtotal&quot;: &quot;1500000.00&quot;,
-        &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+        &quot;producto_id&quot;: 2,
+        &quot;cantidad&quot;: 2,
+        &quot;precio_unitario&quot;: &quot;250000.00&quot;,
+        &quot;subtotal&quot;: &quot;500000.00&quot;,
+        &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
         &quot;deleted_at&quot;: null
     }
 }</code>
@@ -2401,10 +2495,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-detalle-pedidos--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the detalle pedido. Example: <code>1</code></p>
+<p>The ID of the detalle pedido. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -2421,14 +2515,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/detalle-pedidos/1" \
+    "http://localhost/api/detalle-pedidos/2" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"cantidad\": 16,
+    \"precio_unitario\": 39,
+    \"subtotal\": 84
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/detalle-pedidos/1"
+    "http://localhost/api/detalle-pedidos/2"
 );
 
 const headers = {
@@ -2436,10 +2536,16 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "cantidad": 16,
+    "precio_unitario": 39,
+    "subtotal": 84
+};
 
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -2529,12 +2635,73 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-detalle-pedidos--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the detalle pedido. Example: <code>1</code></p>
+<p>The ID of the detalle pedido. Example: <code>2</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>pedido_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="pedido_id"                data-endpoint="PUTapi-detalle-pedidos--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must match an existing stored value.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>producto_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="producto_id"                data-endpoint="PUTapi-detalle-pedidos--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must match an existing stored value.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cantidad</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="cantidad"                data-endpoint="PUTapi-detalle-pedidos--id-"
+               value="16"
+               data-component="body">
+    <br>
+<p>Must be at least 1. Example: <code>16</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>precio_unitario</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="precio_unitario"                data-endpoint="PUTapi-detalle-pedidos--id-"
+               value="39"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>39</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>subtotal</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="subtotal"                data-endpoint="PUTapi-detalle-pedidos--id-"
+               value="84"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>84</code></p>
+        </div>
+        </form>
 
                     <h2 id="detalle-de-pedidos-DELETEapi-detalle-pedidos--id-">DELETE api/detalle-pedidos/{id}</h2>
 
@@ -2549,14 +2716,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/detalle-pedidos/1" \
+    "http://localhost/api/detalle-pedidos/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/detalle-pedidos/1"
+    "http://localhost/api/detalle-pedidos/2"
 );
 
 const headers = {
@@ -2653,10 +2820,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-detalle-pedidos--id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the detalle pedido. Example: <code>1</code></p>
+<p>The ID of the detalle pedido. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -2725,8 +2892,8 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;Pendiente&quot;,
             &quot;observacion&quot;: &quot;Pedido creado&quot;,
             &quot;fecha&quot;: &quot;2026-09-01 09:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2738,8 +2905,8 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;Pendiente&quot;,
             &quot;observacion&quot;: &quot;Pedido creado&quot;,
             &quot;fecha&quot;: &quot;2026-09-02 10:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2751,8 +2918,8 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;En producci&oacute;n&quot;,
             &quot;observacion&quot;: &quot;Pedido enviado a producci&oacute;n&quot;,
             &quot;fecha&quot;: &quot;2026-09-03 08:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2764,8 +2931,8 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;En producci&oacute;n&quot;,
             &quot;observacion&quot;: &quot;Pedido creado y enviado a producci&oacute;n&quot;,
             &quot;fecha&quot;: &quot;2026-08-25 09:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -2777,8 +2944,8 @@ access-control-allow-origin: *
             &quot;estado_nuevo&quot;: &quot;Entregado&quot;,
             &quot;observacion&quot;: &quot;Pedido entregado al cliente&quot;,
             &quot;fecha&quot;: &quot;2026-08-30 16:00:00&quot;,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -2878,7 +3045,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"id_pedido\": 16,
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
-    \"fecha\": \"2026-09-19T01:51:13\"
+    \"fecha\": \"2026-09-19T15:48:36\"
 }"
 </code></pre></div>
 
@@ -2897,7 +3064,7 @@ let body = {
     "id_pedido": 16,
     "estado": "architecto",
     "observaciones": "architecto",
-    "fecha": "2026-09-19T01:51:13"
+    "fecha": "2026-09-19T15:48:36"
 };
 
 fetch(url, {
@@ -3025,10 +3192,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha"                data-endpoint="POSTapi-historial-pedidos"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
         </form>
 
@@ -3189,8 +3356,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-19T01:51:13\",
-    \"fecha_fin\": \"2026-09-19T01:51:13\",
+    \"fecha_inicio\": \"2026-09-19T15:48:36\",
+    \"fecha_fin\": \"2026-09-19T15:48:36\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
     \"id_pedido\": 16,
@@ -3212,8 +3379,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-19T01:51:13",
-    "fecha_fin": "2026-09-19T01:51:13",
+    "fecha_inicio": "2026-09-19T15:48:36",
+    "fecha_fin": "2026-09-19T15:48:36",
     "estado": "architecto",
     "observaciones": "architecto",
     "id_pedido": 16,
@@ -3328,10 +3495,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-historial-pedidos--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -3340,10 +3507,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-historial-pedidos--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -3432,14 +3599,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/historial-pedidos/1" \
+    "http://localhost/api/historial-pedidos/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/historial-pedidos/1"
+    "http://localhost/api/historial-pedidos/architecto"
 );
 
 const headers = {
@@ -3531,15 +3698,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-historial-pedidos--id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-historial-pedidos--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the historial pedido. Example: <code>1</code></p>
+<p>The ID of the historial pedido. Example: <code>architecto</code></p>
             </div>
                     </form>
 
@@ -3608,8 +3775,8 @@ access-control-allow-origin: *
             &quot;fecha_pago&quot;: &quot;2026-09-01&quot;,
             &quot;comprobante&quot;: &quot;COMP-0001&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -3620,8 +3787,8 @@ access-control-allow-origin: *
             &quot;fecha_pago&quot;: &quot;2026-09-02&quot;,
             &quot;comprobante&quot;: &quot;COMP-0002&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
@@ -3632,8 +3799,20 @@ access-control-allow-origin: *
             &quot;fecha_pago&quot;: &quot;2026-09-03&quot;,
             &quot;comprobante&quot;: &quot;COMP-0003&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;pedido_id&quot;: 2,
+            &quot;usuario_id&quot;: 1,
+            &quot;monto&quot;: &quot;39.00&quot;,
+            &quot;metodo&quot;: &quot;architecto&quot;,
+            &quot;fecha_pago&quot;: &quot;2026-09-19&quot;,
+            &quot;comprobante&quot;: &quot;architecto&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2026-09-19T15:44:07.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:44:07.000000Z&quot;
         }
     ]
 }</code>
@@ -3733,7 +3912,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"usuario_id\": \"architecto\",
     \"monto\": 39,
     \"metodo\": \"architecto\",
-    \"fecha_pago\": \"2026-09-19T01:51:13\",
+    \"fecha_pago\": \"2026-09-19T15:48:36\",
     \"comprobante\": \"architecto\"
 }"
 </code></pre></div>
@@ -3754,7 +3933,7 @@ let body = {
     "usuario_id": "architecto",
     "monto": 39,
     "metodo": "architecto",
-    "fecha_pago": "2026-09-19T01:51:13",
+    "fecha_pago": "2026-09-19T15:48:36",
     "comprobante": "architecto"
 };
 
@@ -3895,10 +4074,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="POSTapi-pagos"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>comprobante</code></b>&nbsp;&nbsp;
@@ -3975,8 +4154,8 @@ access-control-allow-origin: *
         &quot;fecha_pago&quot;: &quot;2026-09-01&quot;,
         &quot;comprobante&quot;: &quot;COMP-0001&quot;,
         &quot;deleted_at&quot;: null,
-        &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
     }
 }</code>
  </pre>
@@ -4086,7 +4265,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"monto\": 27,
     \"metodo\": \"architecto\",
-    \"fecha_pago\": \"2026-09-19T01:51:13\",
+    \"fecha_pago\": \"2026-09-19T15:48:36\",
     \"comprobante\": \"architecto\"
 }"
 </code></pre></div>
@@ -4105,7 +4284,7 @@ const headers = {
 let body = {
     "monto": 27,
     "metodo": "architecto",
-    "fecha_pago": "2026-09-19T01:51:13",
+    "fecha_pago": "2026-09-19T15:48:36",
     "comprobante": "architecto"
 };
 
@@ -4263,10 +4442,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_pago"                data-endpoint="PUTapi-pagos--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>comprobante</code></b>&nbsp;&nbsp;
@@ -4469,8 +4648,8 @@ access-control-allow-origin: *
             &quot;estado&quot;: &quot;Pendiente&quot;,
             &quot;total&quot;: &quot;2000000.00&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -4479,8 +4658,8 @@ access-control-allow-origin: *
             &quot;estado&quot;: &quot;En producci&oacute;n&quot;,
             &quot;total&quot;: &quot;1300000.00&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
@@ -4489,8 +4668,8 @@ access-control-allow-origin: *
             &quot;estado&quot;: &quot;Entregado&quot;,
             &quot;total&quot;: &quot;1250000.00&quot;,
             &quot;deleted_at&quot;: null,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
         }
     ]
 }</code>
@@ -4584,7 +4763,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/pedidos" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"cliente_id\": \"architecto\",
+    \"usuario_id\": \"architecto\",
+    \"estado\": \"architecto\",
+    \"total\": 39
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -4597,10 +4783,17 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "cliente_id": "architecto",
+    "usuario_id": "architecto",
+    "estado": "architecto",
+    "total": 39
+};
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4678,7 +4871,56 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cliente_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cliente_id"                data-endpoint="POSTapi-pedidos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Must match an existing stored value. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="POSTapi-pedidos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Must match an existing stored value. Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="estado"                data-endpoint="POSTapi-pedidos"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>total</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="total"                data-endpoint="POSTapi-pedidos"
+               value="39"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>39</code></p>
+        </div>
+        </form>
 
                     <h2 id="pedidos-GETapi-pedidos--id-">GET api/pedidos/{id}</h2>
 
@@ -4730,7 +4972,8 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;success&quot;: &quot;El pedido se encontr&oacute; correctamente&quot;,
+    &quot;success&quot;: true,
+    &quot;message&quot;: &quot;Pedido consultado correctamente.&quot;,
     &quot;data&quot;: {
         &quot;id&quot;: 1,
         &quot;cliente_id&quot;: 1,
@@ -4738,8 +4981,8 @@ access-control-allow-origin: *
         &quot;estado&quot;: &quot;Pendiente&quot;,
         &quot;total&quot;: &quot;2000000.00&quot;,
         &quot;deleted_at&quot;: null,
-        &quot;created_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2026-09-19T01:51:07.000000Z&quot;
+        &quot;created_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2026-09-19T15:18:31.000000Z&quot;
     }
 }</code>
  </pre>
@@ -4845,7 +5088,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-bash">curl --request PUT \
     "http://localhost/api/pedidos/1" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"estado\": \"architecto\",
+    \"total\": 39
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -4858,10 +5106,15 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "estado": "architecto",
+    "total": 39
+};
 
 fetch(url, {
     method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -4956,7 +5209,56 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>The ID of the pedido. Example: <code>1</code></p>
             </div>
-                    </form>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cliente_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cliente_id"                data-endpoint="PUTapi-pedidos--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must match an existing stored value.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>usuario_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="usuario_id"                data-endpoint="PUTapi-pedidos--id-"
+               value=""
+               data-component="body">
+    <br>
+<p>Must match an existing stored value.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="estado"                data-endpoint="PUTapi-pedidos--id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>total</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="total"                data-endpoint="PUTapi-pedidos--id-"
+               value="39"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>39</code></p>
+        </div>
+        </form>
 
                     <h2 id="pedidos-DELETEapi-pedidos--id-">DELETE api/pedidos/{id}</h2>
 
@@ -5230,8 +5532,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-19T01:51:13\",
-    \"fecha_fin\": \"2026-09-19T01:51:13\",
+    \"fecha_inicio\": \"2026-09-19T15:48:36\",
+    \"fecha_fin\": \"2026-09-19T15:48:36\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
     \"id_pedido\": 16,
@@ -5253,8 +5555,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-19T01:51:13",
-    "fecha_fin": "2026-09-19T01:51:13",
+    "fecha_inicio": "2026-09-19T15:48:36",
+    "fecha_fin": "2026-09-19T15:48:36",
     "estado": "architecto",
     "observaciones": "architecto",
     "id_pedido": 16,
@@ -5352,10 +5654,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="POSTapi-producciones"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -5364,10 +5666,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="POSTapi-producciones"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -5600,8 +5902,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-19T01:51:13\",
-    \"fecha_fin\": \"2026-09-19T01:51:13\",
+    \"fecha_inicio\": \"2026-09-19T15:48:36\",
+    \"fecha_fin\": \"2026-09-19T15:48:36\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\",
     \"id_pedido\": 16,
@@ -5623,8 +5925,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-19T01:51:13",
-    "fecha_fin": "2026-09-19T01:51:13",
+    "fecha_inicio": "2026-09-19T15:48:36",
+    "fecha_fin": "2026-09-19T15:48:36",
     "estado": "architecto",
     "observaciones": "architecto",
     "id_pedido": 16,
@@ -5739,10 +6041,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-producciones--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -5751,10 +6053,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-producciones--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -5843,14 +6145,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/producciones/16" \
+    "http://localhost/api/producciones/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/producciones/16"
+    "http://localhost/api/producciones/architecto"
 );
 
 const headers = {
@@ -5942,15 +6244,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-producciones--id-"
-               value="16"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-producciones--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the produccione. Example: <code>16</code></p>
+<p>The ID of the produccione. Example: <code>architecto</code></p>
             </div>
                     </form>
 
@@ -6311,18 +6613,20 @@ fetch(url, {
 
 <span id="example-responses-GETapi-productos--id-">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (500):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
-            <pre><code class="language-http">content-type: text/html; charset=utf-8
-cache-control: no-cache, private
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;"></code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Server Error&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-productos--id-" hidden>
@@ -6801,8 +7105,8 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Administrador&quot;,
             &quot;descripcion&quot;: &quot;Usuario con acceso completo al sistema&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -6810,8 +7114,8 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Vendedor&quot;,
             &quot;descripcion&quot;: &quot;Usuario encargado de realizar ventas y pedidos&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -6819,8 +7123,8 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Encargado de Producci&oacute;n&quot;,
             &quot;descripcion&quot;: &quot;Usuario encargado de gestionar la producci&oacute;n&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
             &quot;deleted_at&quot;: null
         },
         {
@@ -6828,8 +7132,8 @@ access-control-allow-origin: *
             &quot;nombre&quot;: &quot;Tapicero&quot;,
             &quot;descripcion&quot;: &quot;Usuario encargado de realizar trabajos de tapicer&iacute;a&quot;,
             &quot;estado&quot;: true,
-            &quot;created_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2026-09-19T01:51:06.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2026-09-19T15:18:30.000000Z&quot;,
             &quot;deleted_at&quot;: null
         }
     ]
@@ -7343,14 +7647,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/roles/1" \
+    "http://localhost/api/roles/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/roles/1"
+    "http://localhost/api/roles/architecto"
 );
 
 const headers = {
@@ -7442,15 +7746,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-roles--id-"
-               value="1"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-roles--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the role. Example: <code>1</code></p>
+<p>The ID of the role. Example: <code>architecto</code></p>
             </div>
                     </form>
 
@@ -7603,8 +7907,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"descripcion\": \"architecto\",
-    \"fecha_inicio\": \"2026-09-19T01:51:13\",
-    \"fecha_fin\": \"2026-09-19T01:51:13\",
+    \"fecha_inicio\": \"2026-09-19T15:48:36\",
+    \"fecha_fin\": \"2026-09-19T15:48:36\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\"
 }"
@@ -7623,8 +7927,8 @@ const headers = {
 
 let body = {
     "descripcion": "architecto",
-    "fecha_inicio": "2026-09-19T01:51:13",
-    "fecha_fin": "2026-09-19T01:51:13",
+    "fecha_inicio": "2026-09-19T15:48:36",
+    "fecha_fin": "2026-09-19T15:48:36",
     "estado": "architecto",
     "observaciones": "architecto"
 };
@@ -7730,10 +8034,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="POSTapi-trabajos-tapiceros"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -7742,10 +8046,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="POSTapi-trabajos-tapiceros"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -7930,8 +8234,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"fecha_inicio\": \"2026-09-19T01:51:13\",
-    \"fecha_fin\": \"2026-09-19T01:51:13\",
+    \"fecha_inicio\": \"2026-09-19T15:48:36\",
+    \"fecha_fin\": \"2026-09-19T15:48:36\",
     \"estado\": \"architecto\",
     \"observaciones\": \"architecto\"
 }"
@@ -7949,8 +8253,8 @@ const headers = {
 };
 
 let body = {
-    "fecha_inicio": "2026-09-19T01:51:13",
-    "fecha_fin": "2026-09-19T01:51:13",
+    "fecha_inicio": "2026-09-19T15:48:36",
+    "fecha_fin": "2026-09-19T15:48:36",
     "estado": "architecto",
     "observaciones": "architecto"
 };
@@ -8061,10 +8365,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_inicio"                data-endpoint="PUTapi-trabajos-tapiceros--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>fecha_fin</code></b>&nbsp;&nbsp;
@@ -8073,10 +8377,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="fecha_fin"                data-endpoint="PUTapi-trabajos-tapiceros--id-"
-               value="2026-09-19T01:51:13"
+               value="2026-09-19T15:48:36"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-09-19T01:51:13</code></p>
+<p>Must be a valid date. Example: <code>2026-09-19T15:48:36</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>estado</code></b>&nbsp;&nbsp;
@@ -8117,14 +8421,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/trabajos-tapiceros/16" \
+    "http://localhost/api/trabajos-tapiceros/architecto" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/trabajos-tapiceros/16"
+    "http://localhost/api/trabajos-tapiceros/architecto"
 );
 
 const headers = {
@@ -8216,15 +8520,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+<small>string</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="id"                data-endpoint="DELETEapi-trabajos-tapiceros--id-"
-               value="16"
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-trabajos-tapiceros--id-"
+               value="architecto"
                data-component="url">
     <br>
-<p>The ID of the trabajos tapicero. Example: <code>16</code></p>
+<p>The ID of the trabajos tapicero. Example: <code>architecto</code></p>
             </div>
                     </form>
 

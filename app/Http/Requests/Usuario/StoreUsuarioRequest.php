@@ -16,7 +16,7 @@ class StoreUsuarioRequest extends FormRequest
         return [
             // Ajusta estos campos según tu migración de usuarios
             'nombre'   => ['required', 'string', 'max:100'],
-            'email'    => ['required', 'email', 'unique:usuarios,email'],
+            'correo'    => ['required', 'email', 'unique:usuarios,email'],
             'password' => ['required', 'string', 'min:8'],
             'rol_id'   => ['required', 'integer', 'exists:roles,id'],
         ];
@@ -27,9 +27,9 @@ class StoreUsuarioRequest extends FormRequest
         return [
             'nombre.required'   => 'El nombre del usuario es obligatorio.',
             'nombre.string'     => 'El nombre debe ser texto.',
-            'email.required'    => 'El correo electrónico es obligatorio.',
-            'email.email'       => 'Debe ingresar un correo válido.',
-            'email.unique'      => 'Este correo ya está registrado.',
+            'correo.required'    => 'El correo electrónico es obligatorio.',
+            'correo.email'       => 'Debe ingresar un correo válido.',
+            'correo.unique'      => 'Este correo ya está registrado.',
             'password.required' => 'La contraseña es obligatoria.',
             'password.min'      => 'La contraseña debe tener al menos 8 caracteres.',
             'rol_id.required'   => 'Debe asignar un rol al usuario.',

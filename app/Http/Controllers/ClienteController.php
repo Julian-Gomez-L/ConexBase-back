@@ -43,7 +43,13 @@ class ClienteController extends Controller
      */
     public function show(int $id)
     {
-        //
+      $cliente = $this->clientesService->show($id);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Cliente consultado correctamente.',
+            'data' => $cliente
+        ]);
     }
 
     /**
