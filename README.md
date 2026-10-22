@@ -1,4 +1,299 @@
-# Diccionario de Datos — Sistema de Pedidos y Producción (Laravel)
+# ConexBase — Backend (API REST)
+
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![Docs](https://img.shields.io/badge/Docs-Scribe-6C47FF)
+![Estado](https://img.shields.io/badge/estado-en%20desarrollo-orange)
+
+Sistema de información integrado para **Basecamas y Colchones El Dormilón** (Fontibón, Bogotá). Este repositorio contiene el **backend**: una API REST hecha con Laravel que gestiona clientes, productos, pedidos, pagos, producción y trabajos de tapicería.
+
+Proyecto académico del **Tecnólogo en Análisis y Desarrollo de Software** (ficha 3177445), SENA — Centro de Diseño y Metrología, Bogotá, 2025.
+
+## Tabla de contenido
+
+1. [Descripción](#descripción-qué-problema-resuelve)
+2. [Qué incluye hoy y qué falta](#qué-incluye-hoy-y-qué-falta)
+3. [Tecnologías usadas](#tecnologías-usadas)
+4. [Requisitos previos](#requisitos-previos)
+5. [Instalación](#instalación)
+6. [Configuración](#configuración)
+7. [Uso](#uso)
+8. [Estructura del proyecto](#estructura-del-proyecto)
+9. [Cómo contribuir](#cómo-contribuir)
+10. [Licencia](#licencia)
+11. [Contacto o autores](#contacto-o-autores)
+12. [Diccionario de datos](#diccionario-de-datos--sistema-de-pedidos-y-producción-laravel)
+
+---
+
+## Descripción: ¿qué problema resuelve?
+
+Hoy la empresa maneja pedidos, producción y pagos por **WhatsApp y Excel**. Eso causa errores de transcripción, información duplicada o perdida, y no hay forma de saber en qué etapa va cada pedido.
+
+ConexBase centraliza todo en una sola base de datos y sigue el recorrido completo de un pedido:
+
+**Ventas → Confirmación → Producción → Tapicería / Esqueletería → Control de calidad → Entrega**
+
+Objetivos principales:
+
+- Eliminar errores de digitación al tener una única fuente de datos.
+- Calcular automáticamente la liquidación por destajo de los tapiceros y las comisiones de los asesores.
+- Dar trazabilidad al pedido y mejorar la comunicación entre áreas.
+- Entregar reportes para que la gerencia tome decisiones.
+- Mantener un diseño modular para adaptarlo en el futuro a otras empresas del mismo sector en Bogotá.
+
+## Qué incluye hoy y qué falta
+
+| Módulo (según la documentación) | Estado en este backend |
+|---|---|
+| Datos base: roles, usuarios, clientes, categorías, productos | CRUD listo |
+| Ventas: pedidos, detalle de pedido, historial de pedidos | CRUD listo |
+| Pagos | CRUD listo |
+| Producción y trabajos de tapicería | CRUD listo |
+| Inicio de sesión, bloqueo por intentos y recuperación de contraseña | Pendiente (la API aún **no tiene autenticación**) |
+| Control de acceso por rol | Pendiente |
+| Cálculo de comisiones y liquidación de tapiceros | Pendiente |
+| Finanzas (ingresos y reportes) | Pendiente |
+
+Cada entidad ofrece listar, crear, ver, actualizar y eliminar. La eliminación es **lógica** (el registro se marca como borrado, no se pierde).
+
+## Tecnologías usadas
+
+- **PHP 8.3** y **Laravel 12**
+- **MySQL** (base de datos `ConexBase`) y **phpMyAdmin** para consultarla
+- **Docker y Docker Compose** para levantar todo sin instalar nada más
+- **Scribe** para generar la documentación de la API
+- **PHPUnit 11** para pruebas
+- Patrón por capas: Controlador → Servicio → Repositorio → Modelo
+
+## Requisitos previos
+
+La forma más simple es con Docker:
+
+- [Docker](https://www.docker.com/) y Docker Compose
+- [Git](https://git-scm.com/)
+
+Libres en tu equipo: los puertos **8000** (API), **3308** (MySQL) y **8881** (phpMyAdmin).
+
+## Instalación
+
+**1. Clonar el repositorio**
+
+```bash
+git clone https://github.com/Julian-Gomez-L/ConexBase-back.git
+cd ConexBase-back
+git checkout develop
+```
+
+**2. Crear el archivo `.env`**
+
+Crea el archivo `.env` en la raíz del proyecto con los valores de la sección [Configuración](#configuración).
+
+**3. Levantar los contenedores**
+
+```bash
+docker compose up -d --build
+```
+
+**4. Generar la clave de la aplicación y crear las tablas con datos de prueba**
+
+```bash
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan migrate --seed
+```
+
+**5. Verificar**
+
+Abre <http://localhost:8000/api/roles>. Si ves los cuatro roles en formato JSON, todo quedó funcionando.
+
+| Servicio | Dirección |
+|---|---|
+| API | <http://localhost:8000/api> |
+| Documentación de la API | <http://localhost:8000/docs> |
+| phpMyAdmin | <http://localhost:8881> (servidor `db`, usuario `root`, clave `1234`) |
+| MySQL desde tu equipo | `localhost:3308` |
+
+## Configuración
+
+### Variables de entorno
+
+El repositorio no trae `.env.example`, así que crea un archivo llamado `.env` en la raíz con este contenido:
+
+```env
+APP_NAME=ConexBase
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+APP_KEY=
+
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=ConexBase
+DB_USERNAME=root
+DB_PASSWORD=1234
+```
+
+| Variable | Para qué sirve |
+|---|---|
+| `APP_KEY` | Clave de cifrado de Laravel. Déjala vacía y genérala con `php artisan key:generate`. |
+| `APP_URL` | Dirección base de la API; Scribe la usa en la documentación. |
+| `DB_HOST` | Dentro de Docker es `db` (el nombre del servicio de MySQL). Si corres Laravel fuera de Docker, usa `127.0.0.1` y el puerto `3308`. |
+| `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` | Deben coincidir con el servicio `db` de `docker-compose.yml`. |
+
+> Estos valores son solo para desarrollo. Nunca subas el `.env` al repositorio (ya está en `.gitignore`).
+
+### Otros archivos de ajustes
+
+| Archivo | Qué configura |
+|---|---|
+| `docker-compose.yml` | Servicios `app`, `db` (MySQL) y `phpmyadmin`, con sus puertos y credenciales. |
+| `Dockerfile` | Imagen de PHP 8.3 con las extensiones necesarias y `composer install`. |
+| `config/scribe.php` | Documentación automática de la API (ruta `/docs`, Postman y OpenAPI). |
+| `phpunit.xml` | Pruebas con SQLite en memoria, sin tocar la base de datos real. |
+| `.editorconfig` | Formato de código: UTF-8, 4 espacios y saltos de línea LF. |
+
+## Uso
+
+### Endpoints
+
+Todos siguen el mismo formato (`GET` listar, `POST` crear, `GET /{id}` ver, `PUT/PATCH /{id}` actualizar, `DELETE /{id}` eliminar):
+
+| Recurso | Ruta |
+|---|---|
+| Roles | `/api/roles` |
+| Usuarios | `/api/usuarios` |
+| Clientes | `/api/clientes` |
+| Categorías | `/api/categorias` |
+| Productos | `/api/productos` |
+| Pedidos | `/api/pedidos` |
+| Detalle de pedidos | `/api/detalle-pedidos` |
+| Pagos | `/api/pagos` |
+| Producciones | `/api/producciones` |
+| Trabajos de tapiceros | `/api/trabajos-tapiceros` |
+| Historial de pedidos | `/api/historial-pedidos` |
+
+### Ejemplo: registrar un pago
+
+```bash
+curl -X POST http://localhost:8000/api/pagos \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -d '{
+    "pedido_id": 1,
+    "usuario_id": 2,
+    "monto": 150000,
+    "metodo": "Transferencia",
+    "fecha_pago": "2026-10-21",
+    "comprobante": "comp-001.jpg"
+  }'
+```
+
+Respuesta correcta:
+
+```json
+{
+  "success": "El pago se creó correctamente",
+  "data": { "id": 2, "pedido_id": 1, "monto": "150000.00" }
+}
+```
+
+### Errores
+
+| Situación | Código | Ejemplo de respuesta |
+|---|---|---|
+| El registro no existe | 404 | `{"success": false, "message": "El pago no existe.", "error": "PAGO_NOT_FOUND", "status": 404}` |
+| El ID no es válido | 422 | `{"success": false, "message": "El identificador del pago no es válido.", "error": "INVALID_ID", "status": 422}` |
+| Faltan datos o son inválidos | 422 | Laravel devuelve el detalle por campo |
+
+Envía siempre el encabezado `Accept: application/json` para recibir los errores de validación en JSON.
+
+### Datos de prueba
+
+El *seeder* crea 4 roles, 4 usuarios (uno por rol), 3 clientes, 3 categorías, 5 productos y varios pedidos, pagos, producciones y trabajos de tapicería.
+
+| Rol | Correo | Contraseña |
+|---|---|---|
+| Administrador | `admin@conexbase.com` | `123456` |
+| Vendedor | `vendedor@conexbase.com` | `123456` |
+| Encargado de Producción | `produccion@conexbase.com` | `123456` |
+| Tapicero | `tapicero@conexbase.com` | `123456` |
+
+Son solo para desarrollo; no los uses en producción.
+
+### Comandos útiles
+
+```bash
+# Regenerar la documentación de la API (Scribe)
+docker compose exec app php artisan scribe:generate
+
+# Reiniciar la base de datos con los datos de prueba
+docker compose exec app php artisan migrate:fresh --seed
+
+# Ejecutar las pruebas
+docker compose exec app php artisan test
+
+# Ver los logs del contenedor
+docker compose logs -f app
+
+# Apagar todo
+docker compose down
+```
+
+## Estructura del proyecto
+
+```text
+app/
+├── Http/
+│   ├── Controllers/    # Reciben la petición y devuelven JSON
+│   └── Requests/       # Validaciones (Store y Update por entidad)
+├── Services/           # Reglas de negocio y validación de IDs
+├── Repositories/       # Acceso a datos (BaseRepository + uno por entidad)
+├── Interfaces/         # Contratos de los repositorios
+├── Models/             # Modelos Eloquent con borrado lógico
+├── Exceptions/         # Errores propios (no encontrado, ID inválido)
+└── Providers/          # Enlace interfaz → repositorio
+database/
+├── migrations/         # 11 tablas, numeradas en orden de dependencia
+└── seeders/            # Datos de prueba
+routes/api.php          # Rutas de la API
+```
+
+El recorrido de una petición es siempre el mismo:
+
+```text
+Ruta → Controlador → Servicio → Repositorio → Modelo → Base de datos
+```
+
+## Cómo contribuir
+
+1. Trabaja desde la rama `develop` y crea una rama propia: `feat/nombre-de-la-funcionalidad`.
+2. Respeta el patrón por capas: no pongas lógica de negocio en el controlador ni consultas en el servicio.
+3. Si agregas una entidad nueva, crea su modelo, migración, interfaz, repositorio, servicio, controlador, *requests* y registra el enlace en `AppServiceProvider`.
+4. Usa nombres en español y en el mismo estilo del resto del proyecto.
+5. Antes de subir, corre `php artisan test` y, si cambiaste endpoints, `php artisan scribe:generate`.
+6. Abre un *Pull Request* hacia `develop` con una descripción clara de qué cambió.
+
+## Licencia
+
+El `composer.json` declara licencia **MIT** (la del esqueleto de Laravel). El repositorio no incluye un archivo `LICENSE`; conviene agregarlo cuando el equipo defina cómo se compartirá el proyecto.
+
+## Contacto o autores
+
+Proyecto desarrollado por aprendices del **Tecnólogo en Análisis y Desarrollo de Software** (ficha 3177445), SENA — Centro de Diseño y Metrología, Bogotá.
+
+- Duvan Felipe Sanchez Villamil
+- David Sneyder Rodríguez Pulido
+- Cristian Camilo Páez Guerrero
+- Julian David Gómez Ladino
+
+Para dudas, errores o sugerencias, abre un *issue* en <https://github.com/Julian-Gomez-L/ConexBase-back/issues> o escribe a cualquiera de los autores.
+
+---
+
+## Diccionario de Datos — Sistema de Pedidos y Producción (Laravel)
 
 **Proyecto:** ConexBase
 **Framework:** Laravel (migraciones Eloquent)
@@ -7,9 +302,11 @@
 
 > Las entidades están numeradas en el **orden de creación de migraciones** (padre → hija) para evitar errores de foreign key.
 
+> **Nota:** este diccionario es la versión 1 y se conserva tal cual. Las migraciones actuales agregan además la columna `deleted_at` (borrado lógico) en todas las tablas, y las tablas reales se llaman `detalle_pedidos` y `trabajos_tapiceros`. Ante cualquier diferencia, mandan las migraciones de `database/migrations/`.
+
 ---
 
-## Resumen (orden de creación)
+### Resumen (orden de creación)
 
 | # | Entidad | Tabla | Depende de | Encargado |
 |---|---------|-------|------------|-----------|
@@ -27,7 +324,7 @@
 
 ---
 
-## 1. Rol — `roles`
+### 1. Rol — `roles`
 
 **Encargado:** Dev 1
 **Descripción:** Define los roles que determinan las funciones y permisos que puede realizar un usuario dentro del sistema.
@@ -46,7 +343,7 @@
 
 ---
 
-## 2. Usuario — `usuarios`
+### 2. Usuario — `usuarios`
 
 **Encargado:** Dev 1
 **Descripción:** Almacena los usuarios que pueden ingresar y operar en el sistema, asociados a un rol.
@@ -75,7 +372,7 @@
 
 ---
 
-## 3. Cliente — `clientes`
+### 3. Cliente — `clientes`
 
 **Encargado:** Dev 2
 **Descripción:** Almacena la información de los clientes que realizan pedidos a la empresa.
@@ -97,7 +394,7 @@
 
 ---
 
-## 4. Categoría — `categorias`
+### 4. Categoría — `categorias`
 
 **Encargado:** Dev 2
 **Descripción:** Clasifica los productos disponibles en diferentes categorías para facilitar su organización y consulta.
@@ -116,7 +413,7 @@
 
 ---
 
-## 5. Producto — `productos`
+### 5. Producto — `productos`
 
 **Encargado:** Dev 2
 **Descripción:** Contiene los productos que pueden ser incluidos en los pedidos de los clientes.
@@ -140,7 +437,7 @@
 
 ---
 
-## 6. Pedido — `pedidos`
+### 6. Pedido — `pedidos`
 
 **Encargado:** Dev 3
 **Descripción:** Representa la solicitud de compra realizada por un cliente y gestionada por un usuario, desde su creación hasta su entrega.
@@ -168,7 +465,7 @@
 
 ---
 
-## 7. Detalle de pedido — `detalle_pedido`
+### 7. Detalle de pedido — `detalle_pedido`
 
 **Encargado:** Dev 3
 **Descripción:** Almacena los productos incluidos dentro de cada pedido, junto con sus cantidades y valores.
@@ -191,7 +488,7 @@
 
 ---
 
-## 8. Pago — `pagos`
+### 8. Pago — `pagos`
 
 **Encargado:** Dev 3
 **Descripción:** Registra los pagos realizados por los clientes asociados a un pedido.
@@ -215,7 +512,7 @@
 
 ---
 
-## 9. Producción — `producciones`
+### 9. Producción — `producciones`
 
 **Encargado:** Dev 4
 **Descripción:** Representa el proceso de fabricación de los productos asociados a un pedido y permite asignar un usuario encargado de la producción.
@@ -242,7 +539,7 @@
 
 ---
 
-## 10. Trabajo de tapicero — `trabajos_tapicero`
+### 10. Trabajo de tapicero — `trabajos_tapicero`
 
 **Encargado:** Dev 4
 **Descripción:** Registra las actividades de tapicería realizadas sobre una producción y el usuario encargado de ejecutarlas.
@@ -267,7 +564,7 @@
 
 ---
 
-## 11. Historial de pedido — `historial_pedidos`
+### 11. Historial de pedido — `historial_pedidos`
 
 **Encargado:** Dev 4
 **Descripción:** Registra los cambios de estado realizados sobre un pedido, indicando qué usuario realizó el cambio y cuándo ocurrió.
